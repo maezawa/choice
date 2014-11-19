@@ -1,0 +1,12 @@
+<header>
+	ボタン
+	<nav>
+		<a ng-href="/choice/shirtdesign/cuff" class="btn icon left small darkGray"></a>
+		<a ng-href="/choice/shirtdesign/thread" class="btn icon right small darkGray"></a>
+	</nav>
+</header>
+<div id="ButtonCtrl" ng-controller="ButtonCtrl">
+	<label ng-repeat="t in buttons" ng-class="{'on': $index + 1 == button.selected}">
+		<input type="radio" id="button{{$index}}" name="button" ng-model="button.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
+	</label>
+</div>

@@ -1,0 +1,12 @@
+<header>
+	クレリック
+	<nav>
+		<a ng-href="/choice/shirtdesign/collar" class="btn icon left small darkGray"></a>
+		<a ng-href="/choice/shirtdesign/cuff" class="btn icon right small darkGray"></a>
+	</nav>
+</header>
+<div id="ClericCtrl" ng-controller="ClericCtrl">
+	<label ng-repeat="t in clerics" ng-class="{'on': $index + 1 == cleric.selected}">
+		<input type="radio" id="cleric{{$index}}" name="cleric" ng-model="cleric.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
+	</label>
+</div>

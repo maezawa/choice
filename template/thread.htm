@@ -1,0 +1,12 @@
+<header>
+	ボタン糸
+	<nav>
+		<a ng-href="/choice/shirtdesign/button" class="btn icon left small darkGray"></a>
+		<a ng-href="/choice/shirtdesign/pocket" class="btn icon right small darkGray"></a>
+	</nav>
+</header>
+<div id="ThreadCtrl" ng-controller="ThreadCtrl">
+	<label ng-repeat="t in threads" ng-class="{'on': $index + 1 == thread.selected}">
+		<input type="radio" id="thread{{$index}}" name="thread" ng-model="thread.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
+	</label>
+</div>

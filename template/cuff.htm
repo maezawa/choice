@@ -1,0 +1,12 @@
+<header>
+	袖の形
+	<nav>
+		<a ng-href="/choice/shirtdesign/cleric" class="btn icon left small darkGray"></a>
+		<a ng-href="/choice/shirtdesign/button" class="btn icon right small darkGray"></a>
+	</nav>
+</header>
+<div id="CuffCtrl" ng-controller="CuffCtrl">
+	<label ng-repeat="t in cuffs" ng-class="{'on': $index + 1 == cuff.selected}">
+		<input type="radio" id="cuff{{$index}}" name="cuff" ng-model="cuff.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
+	</label>
+</div>

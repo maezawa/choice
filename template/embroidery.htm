@@ -1,0 +1,11 @@
+<header>
+	刺繍
+	<nav>
+		<a ng-href="/choice/shirtdesign/front" class="btn icon left small darkGray"></a>
+	</nav>
+</header>
+<div id="EmbroideryCtrl" ng-controller="EmbroideryCtrl">
+	<label ng-repeat="t in embroideries" ng-class="{'on': $index + 1 == embroidery.selected}">
+		<input type="radio" id="embroidery{{$index}}" name="embroidery" ng-model="embroidery.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
+	</label>
+</div>
