@@ -5,8 +5,8 @@
 		<a ng-href="/choice/shirtdesign/cleric" class="btn icon right small darkGray"></a>
 	</nav>
 </header>
-<div id="CollarCtrl" ng-controller="CollarCtrl">
-	<label ng-repeat="t in collars" ng-class="{'on': $index + 1 == collar.selected}">
-		<input type="radio" id="collar{{$index}}" name="collar" ng-model="collar.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
+<div id="CollarCtrl" ng-controller="DesignCtrl" ng-init="init('collar')">
+	<label ng-repeat="t in datas" ng-class="{'on': $index + 1 == data.selected}">
+		<input type="radio" id="collar{{$index}}" name="collar" ng-model="data.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
 	</label>
 </div>

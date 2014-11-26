@@ -1,1 +1,6 @@
-DirectoryIndex index.cgi index.html index.shtml
+DirectorySlash On
+DirectoryIndex index.html
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*$) /choice/shirtdesign/index.html [NC,L]

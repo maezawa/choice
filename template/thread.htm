@@ -5,8 +5,8 @@
 		<a ng-href="/choice/shirtdesign/pocket" class="btn icon right small darkGray"></a>
 	</nav>
 </header>
-<div id="ThreadCtrl" ng-controller="ThreadCtrl">
-	<label ng-repeat="t in threads" ng-class="{'on': $index + 1 == thread.selected}">
-		<input type="radio" id="thread{{$index}}" name="thread" ng-model="thread.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
+<div id="ThreadCtrl" ng-controller="DesignCtrl" ng-init="init('thread')">
+	<label ng-repeat="t in datas" ng-class="{'on': $index + 1 == data.selected}">
+		<input type="radio" id="thread{{$index}}" name="thread" ng-model="data.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
 	</label>
 </div>

@@ -2,9 +2,9 @@
 	生地
 	<a ng-href="/choice/shirtdesign/sleeve" class="btn icon right small darkGray"></a>
 </header>
-<div id="TextureCtrl" ng-controller="TextureCtrl">
-	<label ng-repeat="t in textures">
-		<input type="radio" id="texture{{$index}}" name="texture" ng-model="texture.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
+<div id="TextureCtrl" ng-controller="DesignCtrl" ng-init="init('texture')">
+	<label ng-repeat="t in datas">
+		<input type="radio" id="texture{{$index}}" name="texture" ng-model="data.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
 	</label>
-	{{texture.selected}}
+	{{data.selected}}
 </div>

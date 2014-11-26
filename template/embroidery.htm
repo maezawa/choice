@@ -2,10 +2,24 @@
 	刺繍
 	<nav>
 		<a ng-href="/choice/shirtdesign/front" class="btn icon left small darkGray"></a>
+		<a ng-href="/choice/shirtdesign/measure" class="btn icon right small darkGray"></a>
 	</nav>
 </header>
 <div id="EmbroideryCtrl" ng-controller="EmbroideryCtrl">
 	<label ng-repeat="t in embroideries" ng-class="{'on': $index + 1 == embroidery.selected}">
 		<input type="radio" id="embroidery{{$index}}" name="embroidery" ng-model="embroidery.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
+	</label>
+
+	<label for="embName">文字<small>（半角英数字のみ。8文字まで）</small></label>
+	<input type="text" id="embName" ng-model="embName" ng-maxlength="8">
+
+	<legend>カラー</legend>
+	<label ng-repeat="c in embColors" ng-class="{'on': $index + 1 == embColor.selected}">
+		<input type="radio" id="embColor{{$index}}" name="embColor" ng-model="embColor.selected" ng-value="{{c.id}}" value="{{c.id}}">{{c.name}}
+	</label>
+
+	<legend>刺繍の位置</legend>
+	<label ng-repeat="p in embPoss" ng-class="{'on': $index + 1 == embPos.selected}">
+		<input type="radio" id="embPos{{$index}}" name="embPos" ng-model="embPos.selected" ng-value="{{p.id}}" value="{{p.id}}">{{p.id}}
 	</label>
 </div>

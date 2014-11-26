@@ -140,3 +140,5 @@ body {
 .btn.icon.right:before {
 	content: '\e813';
 }
+
+.p0 { padding: 0 !important }

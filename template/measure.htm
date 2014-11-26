@@ -1,0 +1,162 @@
+<div ng-controller="MeasureCtrl" class="p0">
+	<header>
+		<label for="detail">
+			こだわり採寸
+			<input type="radio" name="kindMesure" id="detail" ng-model="kindMeasure.selected" ng-value="0">
+		</label>
+		<label for="simple">
+			既製品から調整
+			<input type="radio" name="kindMesure" id="simple" ng-model="kindMeasure.selected" ng-value="1">
+		</label>
+	</header>
+	{{kindMeasure.selected}}
+
+	<div id="DetailMeasure" ng-show="kindMeasure.selected == 0">
+		<article id="Elements">
+			<h2>基本情報</h2>
+			あなたの基本情報をご入力ください
+
+			<label for="height">身長(cm)</label>
+			<input type="number" name="height" id="height" ng-model="d.height">
+
+			<label for="weight">体重(cm)</label>
+			<input type="number" name="weight" id="weight" ng-model="d.weight">
+
+			<label for="age">年齢</label>
+			<input type="number" name="age" id="age" ng-model="d.age">
+		</article>
+
+		<article id="Shape">
+			<h2>シルエット選択</h2>
+			お好みのシャツのシルエットを選択してください
+
+			<label>
+				<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="1">
+				細め
+			</label>
+			<label>
+				<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="2">
+				ふつう
+			</label>
+			<label>
+				<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="3">
+				太め
+			</label>
+		</article>
+
+		<article id="Neck">
+			<h2>首回り(cm)</h2>
+			<input type="number" name="neck" ng-model="d.neck" ng-minlength="35" ng-maxlength="45">
+		</article>
+
+		<article id="ShoulderWidth">
+			<h2>肩幅(cm)</h2>
+			<input type="number" name="shoulderWidth" ng-model="d.shoulderWidth" ng-minlength="35" ng-maxlength="57">
+		</article>
+
+		<article id="SleeveLength">
+			<h2>袖丈(cm)</h2>
+			<input type="number" name="sleeveLength" ng-model="d.sleeveLength" ng-minlength="47" ng-maxlength="71">
+		</article>
+
+		<article id="DressLength">
+			<h2>着丈(cm)</h2>
+			<input type="number" name="dressLength" ng-model="d.dressLength" ng-minlength="65" ng-maxlength="90">
+		</article>
+
+		<article id="Chest">
+			<h2>胸囲(cm)</h2>
+			<input type="number" name="chest" ng-model="d.chest" ng-minlength="65" ng-maxlength="131">
+		</article>
+
+		<article id="Waist">
+			<h2>ウエスト(cm)</h2>
+			<input type="number" name="waist" ng-model="d.waist" ng-minlength="45" ng-maxlength="119">
+		</article>
+
+		<article id="Wrist">
+			<h2>手首(cm)</h2>
+			<input type="number" name="wrist" ng-model="d.wrist" ng-minlength="11" ng-maxlength="24">
+		</article>
+
+		<article id="UpperArm">
+			<h2>二の腕(cm)</h2>
+			<input type="number" name="upperArm" ng-model="d.upperArm" ng-minlength="22" ng-maxlength="40">
+		</article>
+	</div>
+
+	<div id="SimpleMeasure" ng-show="kindMeasure.selected == 1">
+		<artcle id="Brand">
+			<h2>いつも着用されているブランド名とサイズを記入下さい</h2>
+			※海外ブランドやセレクトショップのシャツはご遠慮ください。
+
+			<label for="BrandName">
+				ブランド：<input type="text" name="BrandName" id="BrandName" ng-model="d.brandName">
+			</label>
+
+			<label for="BrandSize">
+				サイズ等：<input type="text" name="BrandSize" id="BrandSize" ng-model="d.brandSize">
+			</label>
+
+			<label for="BrandHeight">
+				身長(cm)：<input type="number" name="height" id="BrandHeight" ng-model="d.height">
+			</label>
+
+			<label for="BrandWeight">
+				体重(kg)：<input type="number" name="weight" id="BrandWeight" ng-model="d.weight">
+			</label>
+		</artcle>
+
+		<article id="BrandAdjust">
+			<h2>着用しているシャツからサイズを調整した希望をお選び下さい</h2>
+
+			<label for="BrandNeck">首回り：
+				<select name="brandNeck" id="BrandNeck" ng-model="d.brandNeck" ng-options="">
+					<option value="">そのまま</option>
+				</select>
+			</label>
+
+			<label for="BrandChest">胸囲：
+				<select name="brandChest" id="BrandChest" ng-model="d.brandChest" ng-options="">
+					<option value="">そのまま</option>
+				</select>
+			</label>
+
+			<label for="BrandWaist">ウエスト：
+				<select name="brandWaist" id="BrandWaist" ng-model="d.brandWaist" ng-options="">
+					<option value="">そのまま</option>
+				</select>
+			</label>
+
+			<label for="BrandArm">二の腕：
+				<select name="brandArm" id="BrandArm" ng-model="d.brandArm" ng-options="">
+					<option value="">そのまま</option>
+				</select>
+			</label>
+
+			<label for="BrandWrist">手首：
+				<select name="brandWrist" id="BrandWrist" ng-model="d.brandWrist" ng-options="">
+					<option value="">そのまま</option>
+				</select>
+			</label>
+
+			<label for="BrandShoulderWidth">肩幅：
+				<select name="brandShoulderWidth" id="BrandShoulderWidth" ng-options="">
+					<option value="">そのまま</option>
+				</select>
+			</label>
+
+			<label for="BrandSleeveLength">袖丈：
+				<select name="brandSleeveLength" id="BrandSleeveLength" ng-options="">
+					<option value="">そのまま</option>
+				</select>
+			</label>
+
+			<label for="BrandDressLength">着丈：
+				<select name="brandDressLength" id="BrandDressLength" ng-options="">
+					<option value="">そのまま</option>
+				</select>
+			</label>
+		</article>
+	</div>
+</div>
