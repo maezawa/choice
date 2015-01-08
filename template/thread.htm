@@ -1,12 +1,18 @@
-<header>
-	ボタン糸
-	<nav>
-		<a ng-href="/choice/shirtdesign/button" class="btn icon left small darkGray"></a>
-		<a ng-href="/choice/shirtdesign/pocket" class="btn icon right small darkGray"></a>
-	</nav>
-</header>
 <div id="ThreadCtrl" ng-controller="DesignCtrl" ng-init="init('thread')">
-	<label ng-repeat="t in datas" ng-class="{'on': $index + 1 == data.selected}">
-		<input type="radio" id="thread{{$index}}" name="thread" ng-model="data.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
-	</label>
+	<div class="desc hidden"></div>
+	<header>
+		<select id="steps" ng-model="stepx" ng-options="s.label for s in steps" ng-change="goStep()"></select>
+
+		<nav>
+			<a ng-href="/shirtdesign/button/" class="btn icon left small darkGray"></a>
+			<a ng-href="/shirtdesign/pocket/" class="btn icon right small darkGray"></a>
+		</nav>
+	</header>
+	<nav class="select">
+		<label ng-repeat="t in datas" ng-class="{'on': $index + 1 == data.selected}" style="background-image: url('/img/design/select/thread/{{t.id}}.png')">
+			<input type="radio" id="thread{{$index}}" name="thread" ng-model="data.selected" ng-value="{{t.id}}" value="{{t.id}}">
+		</label>
+
+		<a ng-href="/shirtdesign/confirm/" class="btn full_size mt20" ng-if="isComplete" ng-click="saveCurrentOrder()">デザインの確認</a>
+	</nav>
 </div>

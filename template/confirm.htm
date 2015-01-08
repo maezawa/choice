@@ -1,0 +1,85 @@
+<div id="ConfirmCtrl" ng-controller="ConfirmCtrl">
+	<h2>デザインの確認</h2>
+
+	<main class="dFlex">
+		<div class="confirmParts">
+			<h3>生地</h3>
+			<div style="background-image: url('/img/design/select/cloth/thumb/{{confirm.cloth}}.jpg'); background-size: cover"></div>
+			<a ng-href="/shirtdesign/cloth/" class="btn general blue block small">変更</a>
+		</div>
+
+		<div class="confirmParts">
+			<h3>襟の形</h3>
+			<div style="background-image: url('/img/design/select/collar/{{confirm.collar}}.png')"></div>
+			<a ng-href="/shirtdesign/collar/" class="btn general blue block small">変更</a>
+		</div>
+
+		<div class="confirmParts">
+			<h3>袖の形</h3>
+			<div style="background-image: url('/img/design/select/cuff/{{confirm.cuff}}.png')"></div>
+			<a ng-href="/shirtdesign/cuff/" class="btn general blue block small">変更</a>
+		</div>
+	</main>
+	<main class="dFlex">
+		<div class="confirmParts">
+			<h3>ボタン</h3>
+			<div style="background-image: url('/img/design/select/button/{{confirm.button}}.png')"></div>
+			<a ng-href="/shirtdesign/button/" class="btn general blue block small">変更</a>
+		</div>
+
+		<div class="confirmParts">
+			<h3>ボタン糸</h3>
+			<div style="background-image: url('/img/design/select/thread/confirm_{{confirm.thread}}.png')"></div>
+			<a ng-href="/shirtdesign/thread" class="btn general blue block small">変更</a>
+		</div>
+
+		<div class="confirmParts">
+			<h3>みごろ</h3>
+			<div style="background-image: url('/img/design/select/front/{{confirm.front}}.png')"></div>
+			<a ng-href="/shirtdesign/front/" class="btn general blue block small">変更</a>
+		</div>
+	</main>
+	<main class="dFlex">
+		<div class="confirmParts">
+			<h3>袖</h3>
+			<div class="hAuto txt_center">
+				<span ng-repeat="item in parts.sleeve" ng-if="item.id == confirm.sleeve" class="confirmSelect">{{item.name}}</span>
+			</div>
+			<a ng-href="/shirtdesign/sleeve/" class="btn general blue block small">変更</a>
+		</div>
+
+		<div class="confirmParts">
+			<h3>クレリック</h3>
+			<div class="hAuto txt_center">
+				<span ng-repeat="item in parts.cleric" ng-if="item.id == confirm.cleric" class="confirmSelect">{{item.name}}</span>
+			</div>
+			<a ng-href="/shirtdesign/cleric/" class="btn general blue block small">変更</a>
+		</div>
+
+		<div class="confirmParts">
+			<h3>ポケット</h3>
+			<div class="hAuto txt_center">
+				<span ng-repeat="item in parts.pocket" ng-if="item.id == confirm.pocket" class="confirmSelect">{{item.name}}</span>
+			</div>
+			<a ng-href="/shirtdesign/pocket/" class="btn general blue block small">変更</a>
+		</div>
+	</main>
+	<main class="dFlex">
+		<div class="confirmParts">
+			<h3>刺繍</h3>
+			<div class="hAuto">
+				<span ng-repeat="item in parts.embroidery" ng-if="item.id == confirm.embroidery" class="confirmSelect">{{item.name}}</span>
+				<div class="dFlex" ng-if="confirm.embroidery == 2">
+					<div style="width: 170px">
+						<img ng-src="/img/design/select/embPos/{{order.embPos}}.png">
+						<img src="/img/design/select/embFont/1.png">
+					</div>
+					<div class="embName flex">{{order.embName}}</div>
+				</div>
+			</div>
+			<a ng-href="/shirtdesign/embroidery/" class="btn general blue block small">変更</a>
+		</div>
+	</main>
+
+	<a href="/shirtdesign/measure/" class="btn block mt20">採寸をする</a>
+</div>

@@ -1,0 +1,18 @@
+<div id="TextureCtrl" ng-controller="DesignCtrl" ng-init="init('cloth')">
+	<div class="desc">
+		<div class="name" ng-bind="name"></div>
+		<div class="content" ng-bind="desc"></div>
+	</div>
+	<header>
+		<select id="steps" ng-model="stepx" ng-options="s.label for s in steps" ng-change="goStep()"></select>
+
+		<a ng-href="/shirtdesign/sleeve/" class="btn icon right small darkGray"></a>
+	</header>
+	<nav class="select">
+		<label ng-repeat="t in datas" ng-class="{on: t.id == data.selected}" style="background-image: url('/img/design/select/cloth/thumb/{{t.id}}.jpg')" ng-mouseover="showDesc()" ng-click="showDesc()">
+			<input type="radio" id="cloth{{$index}}" name="cloth" ng-model="data.selected" ng-value="{{t.id}}">
+		</label>
+
+		<a ng-href="/shirtdesign/confirm/" class="btn full_size mt20" ng-if="isComplete" ng-click="saveCurrentOrder()">デザインの確認</a>
+	</nav>
+</div>

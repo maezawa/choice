@@ -1,0 +1,670 @@
+@charset "UTF-8";
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+/* line 9, ../sass/_reset.scss */
+html { font-size: 62.5% }
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* line 30, ../sass/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 34, ../sass/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, #top, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 39, ../sass/_reset.scss */
+nav ul {
+  list-style: none;
+}
+
+/* line 43, ../sass/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 47, ../sass/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 53, ../sass/_reset.scss */
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+/* line 62, ../sass/_reset.scss */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+/* line 69, ../sass/_reset.scss */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* line 76, ../sass/_reset.scss */
+del {
+  text-decoration: line-through;
+}
+
+/* line 80, ../sass/_reset.scss */
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+/* line 85, ../sass/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+/* line 91, ../sass/_reset.scss */
+hr {
+  border: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 101, ../sass/_reset.scss */
+/*input, select {*/
+  /*vertical-align: middle;*/
+  /*padding: 8px 7px 5px 7px;*/
+  /*font-weight: bold;*/
+  /*font-size: 20px;*/
+  /*border: none;*/
+  /*background: none;*/
+/*}*/
+
+/* line 110, ../sass/_reset.scss */
+li {
+  list-style-type: none;
+}
+
+/* line 4, ../sass/_base.scss */
+html {
+  font-family: 'ヒラギノ角ゴ ProN W3', 'HiraKakuProN-W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+}
+
+/* line 8, ../sass/_base.scss */
+body {
+  background: #efefef;
+}
+
+/* line 10, ../sass/_base.scss */
+i
+p, li {
+  font-size: 14px;
+}
+
+/* line 16, ../sass/_base.scss */
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* line 21, ../sass/_base.scss */
+.wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1200px) {
+  /* line 21, ../sass/_base.scss */
+  .wrap {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 840px) {
+  /* line 30, ../sass/_base.scss */
+  .pc-only {
+    display: block;
+  }
+
+  /* line 31, ../sass/_base.scss */
+  .sp-only {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  /* line 36, ../sass/_base.scss */
+  .pc-only {
+    display: none;
+  }
+
+  /* line 37, ../sass/_base.scss */
+  .sp-only {
+    display: block;
+  }
+}
+/* line 1, ../sass/_#top.scss */
+#top {
+  height: 110px;
+  background: #e2e2e2;
+  /* ヘッダートップの設定 */
+  /* メニューバーの設定 */
+}
+@media screen and (max-width: 840px) {
+  /* line 1, ../sass/_#top.scss */
+  #top {
+    height: 75px;
+  }
+}
+/* line 6, ../sass/_#top.scss */
+#top .sns {
+  background: #03364b;
+  text-align: right;
+  padding: 14px 0;
+  margin: 0 auto;
+}
+@media screen and (max-width: 840px) {
+  /* line 6, ../sass/_#top.scss */
+  #top .sns {
+    padding: 0;
+    height: 10px;
+  }
+}
+/* line 17, ../sass/_#top.scss */
+#top .sns .fb-like span {
+  margin: 0px 20px 2px 0px;
+}
+@media screen and (max-width: 840px) {
+  /* line 21, ../sass/_#top.scss */
+  #top .sns .wrap {
+    display: none;
+  }
+}
+/* line 29, ../sass/_#top.scss */
+#top .menu {
+  padding: 18px 0px 10px 0px;
+}
+/* line 32, ../sass/_#top.scss */
+#top .menu .title a {
+  width: 154px;
+  height: 32px;
+  margin: 0px 0px 0px 30px;
+  float: left;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  background: url(../img/logo.png) no-repeat;
+  background-size: 154px 32px;
+}
+@media screen and (max-width: 840px) {
+  /* line 32, ../sass/_#top.scss */
+  #top .menu .title a {
+    float: none;
+    margin: 0 auto;
+  }
+}
+/* line 50, ../sass/_#top.scss */
+#top .menu nav {
+  float: right;
+}
+@media screen and (max-width: 840px) {
+  /* line 50, ../sass/_#top.scss */
+  #top .menu nav {
+    float: none;
+  }
+}
+/* line 54, ../sass/_#top.scss */
+#top .menu nav .btn {
+  position: absolute;
+  top: 35px;
+  right: 15px;
+  font-size: 100%;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+/* line 59, ../sass/_#top.scss */
+#top .menu nav .btn a {
+  display: none;
+}
+@media screen and (max-width: 840px) {
+  /* line 59, ../sass/_#top.scss */
+  #top .menu nav .btn a {
+    width: 22px;
+    height: 22px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    background: url(../img/btn_nav.png) no-repeat;
+    background-size: 22px 22px;
+  }
+}
+/* line 73, ../sass/_#top.scss */
+#top .menu nav .close_overlay {
+  display: none;
+}
+@media screen and (max-width: 840px) {
+  /* line 73, ../sass/_#top.scss */
+  #top .menu nav .close_overlay {
+    display: block;
+  }
+}
+/* line 79, ../sass/_#top.scss */
+#top .menu .text01 {
+  font-size: 12px;
+  color: #bd8115;
+  line-height: 16px;
+  float: left;
+}
+@media screen and (max-width: 840px) {
+  /* line 79, ../sass/_#top.scss */
+  #top .menu .text01 {
+    display: none;
+  }
+}
+/* line 88, ../sass/_#top.scss */
+#top .menu ul {
+  float: right;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+/* line 95, ../sass/_#top.scss */
+#top .menu ul li {
+  float: left;
+  margin: 10px 40px 0 0;
+}
+@media screen and (max-width: 840px) {
+  /* line 95, ../sass/_#top.scss */
+  #top .menu ul li {
+    float: none;
+    margin: 0 20px;
+  }
+  /* line 102, ../sass/_#top.scss */
+  #top .menu ul li a {
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    padding: 20px 0;
+    display: block;
+    border-bottom: 1px solid #000;
+  }
+}
+/* line 114, ../sass/_#top.scss */
+#top .menu ul li:first-child {
+  margin: 6px 30px 0;
+}
+/* line 115, ../sass/_#top.scss */
+#top .menu ul li:nth-child(4) {
+  margin-right: 35px;
+}
+/* line 116, ../sass/_#top.scss */
+#top .menu ul li:nth-child(5), #top .menu ul li:last-child {
+  display: none;
+}
+@media screen and (max-width: 840px) {
+  /* line 119, ../sass/_#top.scss */
+  #top .menu ul li:first-child {
+    display: none;
+  }
+  /* line 120, ../sass/_#top.scss */
+  #top .menu ul li:nth-child(4) {
+    margin: 0 20px;
+  }
+  /* line 121, ../sass/_#top.scss */
+  #top .menu ul li:nth-child(5), #top .menu ul li:last-child {
+    display: block;
+  }
+}
+/* line 125, ../sass/_#top.scss */
+#top .menu ul li:first-child span {
+  color: #fff;
+  position: relative;
+  top: -4px;
+  padding: 4px 8px;
+  margin: 0px 0px 0px 4px;
+  border-radius: 20px;
+  background-color: #ff0000;
+}
+
+/* line 1, ../sass/_modal.scss */
+.modal_contents {
+  float: right;
+}
+@media screen and (max-width: 840px) {
+  /* line 1, ../sass/_modal.scss */
+  .modal_contents {
+    float: none;
+    margin: 0 auto;
+    padding: 10px 0 50px 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  /* line 12, ../sass/_modal.scss */
+  #spNav {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    z-index: 999;
+  }
+
+  /* line 22, ../sass/_modal.scss */
+  .modal_window {
+    top: 90px;
+    left: 50%;
+    width: 96%;
+    margin-left: -48%;
+    display: block;
+    background: #03364b;
+    position: fixed;
+    z-index: 999;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+  }
+
+  /* line 38, ../sass/_modal.scss */
+  .close_overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-indent: -9999px;
+    position: absolute;
+    background: rgba(0, 180, 255, 0);
+    z-index: 998;
+  }
+}
+/* CSS3 ModalWindow SET
+-------------------------- */
+@-webkit-keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    display: block;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* line 57, ../sass/_modal.scss */
+div#modal div:target {
+  -webkit-animation-name: modalFadeIn;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  opacity: 1;
+  display: block;
+}
+
+/* line 1, ../sass/_footer.scss */
+.pageTop a {
+  width: 77px;
+  height: 49px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  background: url(../img/btn_pageTop.png) no-repeat;
+  background-size: 77px 49px;
+  margin: 0px auto 70px auto;
+}
+
+/* line 13, ../sass/_footer.scss */
+footer {
+  display: block !important;
+  width: 100%;
+  height: 236px;
+  font-weight: normal;
+  overflow: hidden;
+  background-color: #03364b;
+  position: fixed;
+  bottom: 0;
+}
+@media screen and (max-width: 840px) {
+  /* line 13, ../sass/_footer.scss */
+  footer {
+    display: none !important;
+    height: auto;
+    margin: 3rem 0 0;
+    position: relative;
+  }
+}
+/* line 24, ../sass/_footer.scss */
+footer a {
+  font-size: 12px;
+  color: #fff;
+}
+/* line 29, ../sass/_footer.scss */
+footer .navFooter {
+  width: 450px;
+  height: 100px;
+  float: left;
+  padding-top: 50px;
+  margin-left: 30px;
+}
+/* line 36, ../sass/_footer.scss */
+footer .navFooter p {
+  margin-bottom: 20px;
+}
+/* line 38, ../sass/_footer.scss */
+footer .navFooter .first, footer .navFooter .second {
+  float: left;
+  margin-right: 60px;
+}
+/* line 43, ../sass/_footer.scss */
+footer .navFooter .third {
+  float: left;
+}
+@media screen and (max-width: 840px) {
+  /* line 29, ../sass/_footer.scss */
+  footer .navFooter {
+    display: none;
+  }
+}
+/* line 50, ../sass/_footer.scss */
+footer .logo {
+  float: right;
+  margin-top: 90px;
+  margin-right: 30px;
+}
+@media screen and (max-width: 840px) {
+  /* line 50, ../sass/_footer.scss */
+  footer .logo {
+    float: none;
+    clear: both;
+    padding: 1em 0;
+    margin: 0;
+  }
+}
+/* line 62, ../sass/_footer.scss */
+footer ul {
+  display: none;
+}
+@media screen and (max-width: 840px) {
+  /* line 62, ../sass/_footer.scss */
+  footer ul {
+    display: block;
+    width: 100%;
+    table-layout: fixed;
+  }
+  /* line 70, ../sass/_footer.scss */
+  footer ul li {
+    display: table-cell;
+    width: 50%;
+    float: left;
+    border-bottom: 1px solid #000;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+  /* line 78, ../sass/_footer.scss */
+  footer ul li a {
+    text-align: center;
+    display: block;
+    padding: 1rem 0;
+  }
+  /* line 85, ../sass/_footer.scss */
+  footer ul li:nth-child(2n+1) {
+    border-right: 1px solid #000;
+  }
+}
+/* line 91, ../sass/_footer.scss */
+footer .logo a {
+  width: 259px;
+  height: 54px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  background: url(../img/logo_footer.png) no-repeat;
+  background-size: 259px 54px;
+}
+@media screen and (max-width: 840px) {
+  /* line 91, ../sass/_footer.scss */
+  footer .logo a {
+    zoom: .75;
+    margin: 0 auto;
+  }
+}
+/* line 107, ../sass/_footer.scss */
+footer #copy {
+  font-size: 12px;
+  clear: both;
+  color: #fff;
+  padding-top: 40px;
+  margin-left: 30px;
+}
+@media screen and (max-width: 840px) {
+  /* line 107, ../sass/_footer.scss */
+  footer #copy {
+    float: none;
+    clear: both;
+    text-align: center;
+    padding: 0 0 1rem 0;
+    margin: 0 auto;
+    font-size: .75rem;
+  }
+}
+
+/* line 8, ../sass/app.scss */
+#main {
+  width: 100%;
+}
+/* line 12, ../sass/app.scss */
+#main .wrap {
+  padding-bottom: 236px;
+}
+/* line 16, ../sass/app.scss */
+#main p {
+  font-size: 14px;
+  line-height: 35px;
+  letter-spacing: 2px;
+}
+
+/* line 23, ../sass/app.scss */
+.complete {
+  text-align: center;
+  overflow: hidden;
+}
+/* line 27, ../sass/app.scss */
+.complete h1 {
+  color: #bb8522;
+  font-size: 22px;
+  font-weight: normal;
+  padding: 100px 0;
+  letter-spacing: 4px;
+}
+/* line 35, ../sass/app.scss */
+.complete p {
+  width: 700px;
+  margin: 0 auto 50px auto;
+}
+@media screen and (max-width: 840px) {
+  /* line 35, ../sass/app.scss */
+  .complete p {
+    width: 96%;
+  }
+}
+/* line 41, ../sass/app.scss */
+.complete p .color {
+  color: #c61212;
+}
+/* line 44, ../sass/app.scss */
+.complete address {
+  font-size: 14px;
+  font-style: normal;
+  line-height: 22px;
+  margin-bottom: 70px;
+}
+/* line 51, ../sass/app.scss */
+.complete .logo {
+  width: 206px;
+  height: 18px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  background: url(../img/logo_comp.png) no-repeat;
+  background-size: 206px 18px;
+  margin-bottom: 70px;
+}
+/* line 63, ../sass/app.scss */
+.complete .linkBtn {
+  width: 280px;
+  margin-bottom: 100px;
+}
+/* line 67, ../sass/app.scss */
+.complete .linkBtn a {
+  padding: 10px 0px;
+  display: block;
+  color: #fff;
+  background-color: #d59828;
+}

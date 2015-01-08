@@ -1,12 +1,21 @@
-<header>
-	袖の形
-	<nav>
-		<a ng-href="/choice/shirtdesign/cleric" class="btn icon left small darkGray"></a>
-		<a ng-href="/choice/shirtdesign/button" class="btn icon right small darkGray"></a>
-	</nav>
-</header>
 <div id="CuffCtrl" ng-controller="DesignCtrl" ng-init="init('cuff')">
-	<label ng-repeat="t in datas" ng-class="{'on': $index + 1 == data.selected}">
-		<input type="radio" id="cuff{{$index}}" name="cuff" ng-model="data.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
-	</label>
+	<div class="desc">
+		<div class="name" ng-bind="name"></div>
+		<div class="content" ng-bind="desc"></div>
+	</div>
+	<header>
+		<select id="steps" ng-model="stepx" ng-options="s.label for s in steps" ng-change="goStep()"></select>
+
+		<nav>
+			<a ng-href="/shirtdesign/cleric/" class="btn icon left small darkGray"></a>
+			<a ng-href="/shirtdesign/button/" class="btn icon right small darkGray"></a>
+		</nav>
+	</header>
+	<nav class="select">
+		<label ng-repeat="t in datas" ng-class="{'on': $index + 1 == data.selected}" style="background-image: url('/img/design/select/cuff/{{t.id}}.png'); padding: 5px" ng-mouseover="showDesc()"  ng-click="showDesc()">
+			<input type="radio" id="cuff{{$index}}" name="cuff" ng-model="data.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
+		</label>
+
+		<a ng-href="/shirtdesign/confirm/" class="btn full_size mt20" ng-if="isComplete" ng-click="saveCurrentOrder()">デザインの確認</a>
+	</nav>
 </div>

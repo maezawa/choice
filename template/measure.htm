@@ -1,162 +1,259 @@
-<div ng-controller="MeasureCtrl" class="p0">
+<div ng-controller="MeasureCtrl" class="p0" ng-init="init()">
 	<header>
-		<label for="detail">
-			こだわり採寸
-			<input type="radio" name="kindMesure" id="detail" ng-model="kindMeasure.selected" ng-value="0">
-		</label>
-		<label for="simple">
-			既製品から調整
-			<input type="radio" name="kindMesure" id="simple" ng-model="kindMeasure.selected" ng-value="1">
-		</label>
+		採寸
 	</header>
-	{{kindMeasure.selected}}
 
 	<div id="DetailMeasure" ng-show="kindMeasure.selected == 0">
-		<article id="Elements">
-			<h2>基本情報</h2>
-			あなたの基本情報をご入力ください
-
-			<label for="height">身長(cm)</label>
-			<input type="number" name="height" id="height" ng-model="d.height">
-
-			<label for="weight">体重(cm)</label>
-			<input type="number" name="weight" id="weight" ng-model="d.weight">
-
-			<label for="age">年齢</label>
-			<input type="number" name="age" id="age" ng-model="d.age">
-		</article>
-
-		<article id="Shape">
-			<h2>シルエット選択</h2>
-			お好みのシャツのシルエットを選択してください
-
-			<label>
-				<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="1">
-				細め
+		<fieldset class="groupBtn">
+			<label for="detail" class="on">
+				こだわり採寸
+				<input type="radio" name="kindMesure" id="detail" ng-model="kindMeasure.selected" ng-value="0" checked>
+			</label><label for="simple">
+				既製品から調整
+				<input type="radio" name="kindMesure" id="simple" ng-model="kindMeasure.selected" ng-value="1">
 			</label>
-			<label>
-				<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="2">
-				ふつう
-			</label>
-			<label>
-				<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="3">
-				太め
-			</label>
-		</article>
+		</fieldset>
+		<p class="txt_center">※どちらかの採寸をお選び下さい</p>
 
-		<article id="Neck">
-			<h2>首回り(cm)</h2>
-			<input type="number" name="neck" ng-model="d.neck" ng-minlength="35" ng-maxlength="45">
-		</article>
+		<form name="Elements" id="Elements" novalidate>
+			<h2>基本情報<small>(1/10)</small></h2>
+			<p class="txt_center">あなたの基本情報をご入力ください</p>
+			<br>
 
-		<article id="ShoulderWidth">
-			<h2>肩幅(cm)</h2>
-			<input type="number" name="shoulderWidth" ng-model="d.shoulderWidth" ng-minlength="35" ng-maxlength="57">
-		</article>
+			<fieldset>
+				<label>身長</label>
+				<input type="number" name="height" ng-model="d.height" placeholder="{{r.height.min}}〜{{r.height.max}}" min="{{r.height.min}}" max="{{r.height.max}}" ng-required="true" ng-model-options="{updateOn: 'blur'}">cm
+				<span ng-show="Elements.height.$error.min || Elements.height.$error.max" class="errorMsg">{{r.height.min}}〜{{r.height.max}}cmの範囲内で入力ください。</span>
+				<span ng-show="Elements.height.$dirty && Elements.height.$error.required" class="errorMsg">この項目は必須項目です。</span>
+			</fieldset>
 
-		<article id="SleeveLength">
-			<h2>袖丈(cm)</h2>
-			<input type="number" name="sleeveLength" ng-model="d.sleeveLength" ng-minlength="47" ng-maxlength="71">
-		</article>
+			<fieldset>
+				<label>体重</label>
+				<input type="number" name="weight" ng-model="d.weight" placeholder="{{r.weight.min}}〜{{r.weight.max}}" min="{{r.weight.min}}" max="{{r.weight.max}}" ng-required="true" ng-model-options="{debounce: 500}">kg
+				<span ng-show="Elements.weight.$error.min || Elements.weight.$error.max" class="errorMsg">{{r.weight.min}}〜{{r.weight.max}}kgの範囲内で入力ください。</span>
+				<span ng-show="Elements.weight.$dirty && Elements.weight.$error.required" class="errorMsg">この項目は必須項目です。</span>
+			</fieldset>
 
-		<article id="DressLength">
-			<h2>着丈(cm)</h2>
-			<input type="number" name="dressLength" ng-model="d.dressLength" ng-minlength="65" ng-maxlength="90">
-		</article>
+			<button class="btn alone icon next" type="button" ng-click="goStep(1, $event)" ng-disabled="Elements.$invalid">シャツのシルエットを選択する</button>
+		</form>
 
-		<article id="Chest">
-			<h2>胸囲(cm)</h2>
-			<input type="number" name="chest" ng-model="d.chest" ng-minlength="65" ng-maxlength="131">
-		</article>
+		<form name="Shape" id="Shape">
+			<h2>シルエット選択<small>(2/10)</small></h2>
+			<p class="txt_center">お好みのシャツのシルエットを選択してください</p>
+			<br>
 
-		<article id="Waist">
-			<h2>ウエスト(cm)</h2>
-			<input type="number" name="waist" ng-model="d.waist" ng-minlength="45" ng-maxlength="119">
-		</article>
+			<fieldset>
+				<label ng-class="{'on': shape.selected == 1}" style="background-image: url('/img/design/measure/slim.png')" class="silhouette">
+					<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="1">
+				</label>
+				<label ng-class="{'on': shape.selected == 2}" style="background-image: url('/img/design/measure/normal.png')" class="silhouette">
+					<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="2">
+				</label>
+				<label ng-class="{'on': shape.selected == 3}" style="background-image: url('/img/design/measure/wide.png')" class="silhouette">
+					<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="3">
+				</label>
+			</fieldset>
 
-		<article id="Wrist">
-			<h2>手首(cm)</h2>
-			<input type="number" name="wrist" ng-model="d.wrist" ng-minlength="11" ng-maxlength="24">
-		</article>
+			<button class="btn icon prev" type="button" ng-click="goStep(0, $event)">基本情報に戻る</button>
+			<button class="btn icon next" type="button" ng-click="goStep(2, $event)" ng-disabled="Shape.$invalid">首回りの採寸</button>
+		</form>
 
-		<article id="UpperArm">
-			<h2>二の腕(cm)</h2>
-			<input type="number" name="upperArm" ng-model="d.upperArm" ng-minlength="22" ng-maxlength="40">
-		</article>
+		<form name="Neck" id="Neck">
+			<h2>首回り<small>(3/10)</small></h2>
+			<p>締めつけることなく、首の付け根の太さを測ります。</p>
+
+			<input type="number" name="neck" ng-model="d.neck" placeholder="{{r.neck.min}}〜{{r.neck.max}}" min="{{r.neck.min}}" max="{{r.neck.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
+			<span ng-show="Neck.neck.$error.min || Neck.neck.$error.max" class="errorMsg">{{r.neck.min}}〜{{r.neck.max}}cmの範囲内で入力ください。</span>
+			<span ng-show="Neck.neck.$dirty && Neck.neck.$error.required" class="errorMsg">この項目は必須項目です。</span>
+
+			<button class="btn icon prev" type="button" ng-click="goStep(1, $event)">シルエットの選択</button>
+			<button class="btn icon next" type="button" ng-click="goStep(3, $event)" ng-disabled="Neck.$invalid">着丈の採寸</button>
+		</form>
+
+		<form name="DressLength" id="DressLength">
+			<h2>着丈<small>(4/10)</small></h2>
+			<p>首の付け根の骨からお尻と太ももの境目までをお計り下さい。</p>
+
+			<input type="number" name="dressLength" ng-model="d.dressLength" placeholder="{{r.dressLength.min}}〜{{r.dressLength.max}}" min="{{r.dressLength.min}}" max="{{r.dressLength.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
+			<span ng-show="DressLength.dressLength.$error.min || DressLength.dressLength.$error.max" class="errorMsg">{{r.dressLength.min}}〜{{r.dressLength.max}}cmの範囲内で入力ください。</span>
+			<span ng-show="DressLength.dressLength.$dirty && DressLength.dressLength.$error.required" class="errorMsg">この項目は必須項目です。</span>
+
+			<button class="btn icon prev" type="button" ng-click="goStep(2, $event)">首回りの採寸</button>
+			<button class="btn icon next" type="button" ng-click="goStep(4, $event)" ng-disabled="DressLength.$invalid">胸囲の採寸</button>
+		</form>
+
+		<form name="ShoulderWidth" id="ShoulderWidth">
+			<h2>肩幅<small>(5/10)</small></h2>
+			<p>腕と肩骨の付け根から首付け根を通り、反対の肩骨までお計り下さい。</p>
+
+			<input type="number" name="shoulderWidth" ng-model="d.shoulderWidth" placeholder="{{r.shoulderWidth.min}}〜{{r.shoulderWidth.max}}" min="{{r.shoulderWidth.min}}" max="{{r.shoulderWidth.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
+			<span ng-show="ShoulderWidth.shoulderWidth.$error.min || ShoulderWidth.shoulderWidth.$error.max" class="errorMsg">{{r.shoulderWidth.min}}〜{{r.shoulderWidth.max}}cmの範囲内で入力ください。</span>
+			<span ng-show="ShoulderWidth.shoulderWidth.$dirty && ShoulderWidth.shoulderWidth.$error.required" class="errorMsg">この項目は必須項目です。</span>
+
+			<button class="btn icon prev" type="button" ng-click="goStep(3, $event)">着丈の採寸</button>
+			<button class="btn icon next" type="button" ng-click="goStep(5, $event)" ng-disabled="ShoulderWidth.$invalid">袖丈の採寸</button>
+		</form>
+
+		<form name="SleeveLength" id="SleeveLength">
+			<h2>袖丈<small>(6/10)</small></h2>
+			<p>腕の肩骨のつけねから親指の付け根付近までをお計り下さい。</p>
+
+			<input type="number" name="sleeveLength" ng-model="d.sleeveLength" placeholder="{{r.sleeveLength.min}}〜{{r.sleeveLength.max}}" min="{{r.sleeveLength.min}}" max="{{r.sleeveLength.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
+			<span ng-show="SleeveLength.sleeveLength.$error.min || SleeveLength.sleeveLength.$error.max" class="errorMsg">{{r.sleeveLength.min}}〜{{r.sleeveLength.max}}cmの範囲内で入力ください。</span>
+			<span ng-show="SleeveLength.sleeveLength.$dirty && SleeveLength.sleeveLength.$error.required" class="errorMsg">この項目は必須項目です。</span>
+
+			<button class="btn icon prev" type="button" ng-click="goStep(4, $event)">肩幅の採寸</button>
+			<button class="btn icon next" type="button" ng-click="goStep(6, $event)" ng-disabled="SleeveLength.$invalid">胸囲の採寸</button>
+		</form>
+
+		<form name="Chest" id="Chest">
+			<h2>胸囲<small>(7/10)</small></h2>
+			<p>胸を膨らませずに、脇の下を通して一直線にお測り下さい。</p>
+
+			<input type="number" name="chest" ng-model="d.chest" placeholder="{{r.chest.min}}〜{{r.chest.max}}" min="{{r.chest.min}}" max="{{r.chest.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
+			<span ng-show="Chest.chest.$error.min || Chest.chest.$error.max" class="errorMsg">{{r.chest.min}}〜{{r.chest.max}}cmの範囲内で入力ください。</span>
+			<span ng-show="Chest.chest.$dirty && Chest.chest.$error.required" class="errorMsg">この項目は必須項目です。</span>
+
+			<button class="btn icon prev" type="button" ng-click="goStep(5, $event)">袖丈の採寸</button>
+			<button class="btn icon next" type="button" ng-click="goStep(7, $event)" ng-disabled="Chest.$invalid">ウエストの採寸</button>
+		</form>
+
+		<form name="Waist" id="Waist">
+			<h2>ウエスト<small>(8/10)</small></h2>
+			<p>腹部をへこませることなく、胴回りを測ります。(大柄な方は座った姿勢も測って下さい)</p>
+
+			<input type="number" name="waist" ng-model="d.waist" placeholder="{{r.waist.min}}〜{{r.waist.max}}" min="{{r.waist.min}}" max="{{r.waist.min}}〜{{r.waist.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
+			<span ng-show="Waist.waist.$error.min || Waist.waist.$error.max" class="errorMsg">{{r.waist.min}}〜{{r.waist.max}}cmの範囲内で入力ください。</span>
+			<span ng-show="Waist.waist.$dirty && Waist.waist.$error.required" class="errorMsg">この項目は必須項目です。</span>
+
+			<button class="btn icon prev" type="button" ng-click="goStep(6, $event)">胸囲の採寸</button>
+			<button class="btn icon next" type="button" ng-click="goStep(8, $event)" ng-disabled="Waist.$invalid">手首の採寸</button>
+		</form>
+
+		<form name="Wrist" id="Wrist">
+			<h2>手首<small>(9/10)</small></h2>
+			<p>手首のくるぶしから一周お計り下さい。</p>
+
+			<input type="number" name="wrist" ng-model="d.wrist" placeholder="{{r.wrist.min}}〜{{r.wrist.max}}" min="{{r.wrist.min}}" max="{{r.wrist.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
+			<span ng-show="Wrist.wrist.$error.min || Wrist.wrist.$error.max" class="errorMsg">{{r.wrist.min}}〜{{r.wrist.max}}cmの範囲内で入力ください。</span>
+			<span ng-show="Wrist.wrist.$dirty && Wrist.wrist.$error.required" class="errorMsg">この項目は必須項目です。</span>
+
+			<button class="btn icon prev" type="button" ng-click="goStep(7, $event)">ウエストの採寸</button>
+			<button class="btn icon next" type="button" ng-click="goStep(9, $event)" ng-disabled="Wrist.$invalid">二の腕の採寸</button>
+		</form>
+
+		<form name="UpperArm" id="UpperArm">
+			<h2>二の腕<small>(10/10)</small></h2>
+			<p>締め付けたり筋肉を膨らませることなく、腕を下ろした状態で脇の下の高さで腕をお測り下さい。</p>
+
+			<input type="number" name="upperArm" ng-model="d.upperArm" placeholder="{{r.upperArm.min}}〜{{r.upperArm.max}}" min="{{r.upperArm.min}}" max="{{r.upperArm.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
+			<span ng-show="UpperArm.upperArm.$error.min || UpperArm.upperArm.$error.max" class="errorMsg">{{r.upperArm.min}}〜{{r.upperArm.max}}cmの範囲内で入力ください。</span>
+			<span ng-show="UpperArm.upperArm.$dirty && UpperArm.upperArm.$error.required" class="errorMsg">この項目は必須項目です。</span>
+
+			<button class="btn icon prev" type="button" ng-click="goStep(8, $event)">手首の採寸</button>
+			<button class="btn icon basket" type="button" ng-click="addCart()">カートに入れる</button>
+		</form>
 	</div>
 
 	<div id="SimpleMeasure" ng-show="kindMeasure.selected == 1">
-		<artcle id="Brand">
-			<h2>いつも着用されているブランド名とサイズを記入下さい</h2>
-			※海外ブランドやセレクトショップのシャツはご遠慮ください。
+		<fieldset class="groupBtn">
+			<label for="detail">
+				こだわり採寸
+				<input type="radio" name="kindMesure" ng-model="kindMeasure.selected" ng-value="0">
+			</label><label for="simple" class="on">
+			既製品から調整
+			<input type="radio" name="kindMesure" ng-model="kindMeasure.selected" ng-value="1" checked>
+		</label>
+		</fieldset>
+		<p class="txt_center">※どちらかの採寸をお選び下さい</p>
 
-			<label for="BrandName">
-				ブランド：<input type="text" name="BrandName" id="BrandName" ng-model="d.brandName">
-			</label>
+		<form name="Brand" id="Brand">
+			<h2>基本情報<small>(1/2)</small></h2>
 
-			<label for="BrandSize">
-				サイズ等：<input type="text" name="BrandSize" id="BrandSize" ng-model="d.brandSize">
-			</label>
+			<strong>いつも着用されているブランド名と<br>サイズを記入ください</strong>
+			<br>
 
-			<label for="BrandHeight">
-				身長(cm)：<input type="number" name="height" id="BrandHeight" ng-model="d.height">
-			</label>
+			<p>※海外ブランドやセレクトショップのシャツはご遠慮ください。</p>
+			<input type="text" name="BrandName" id="BrandName" ng-model="s.brandName" placeholder="ブランド" ng-required="true" ng-model-options="{updateOn: 'blur'}">
+			<span ng-show="Brand.BrandName.$dirty && Brand.BrandName.$error.required" class="errorMsg">この項目は必須項目です。</span>
 
-			<label for="BrandWeight">
-				体重(kg)：<input type="number" name="weight" id="BrandWeight" ng-model="d.weight">
-			</label>
-		</artcle>
 
-		<article id="BrandAdjust">
-			<h2>着用しているシャツからサイズを調整した希望をお選び下さい</h2>
+			<input type="text" name="BrandSize" id="BrandSize" ng-model="s.brandSize" placeholder="サイズ（例：M84）" ng-required="true" ng-model-options="{updateOn: 'blur'}">
+			<span ng-show="Brand.BrandSize.$dirty && Brand.BrandSize.$error.required" class="errorMsg">この項目は必須項目です。</span>
 
-			<label for="BrandNeck">首回り：
-				<select name="brandNeck" id="BrandNeck" ng-model="d.brandNeck" ng-options="">
-					<option value="">そのまま</option>
-				</select>
-			</label>
+			<fieldset>
+				<label>身長</label>
+				<input type="number" name="BrandHeight" id="BrandHeight" ng-model="b.height" placeholder="{{r.height.min}}〜{{r.height.max}}" min="{{r.height.min}}" max="{{r.height.max}}" ng-required="true" ng-model-options="{updateOn: 'blur'}">cm
+				<span ng-show="Brand.brandHeight.$error.min || Elements.brandHeight.$error.max" class="errorMsg">{{r.height.min}}〜{{r.height.max}}cmの範囲内で入力ください。</span>
+				<span ng-show="Brand.brandHeight.$dirty && Elements.brandHeight.$error.required" class="errorMsg">この項目は必須項目です。</span>
+			</fieldset>
 
-			<label for="BrandChest">胸囲：
-				<select name="brandChest" id="BrandChest" ng-model="d.brandChest" ng-options="">
-					<option value="">そのまま</option>
-				</select>
-			</label>
+			<fieldset>
+				<label>体重</label>
+				<input type="number" name="BrandWeight" id="BrandWeight" ng-model="b.weight" placeholder="{{r.weight.min}}〜{{r.weight.max}}" min="{{r.weight.min}}" max="{{r.weight.max}}" ng-required="true" ng-model-options="{debounce: 500}">kg
+				<span ng-show="Brand.brandWeight.$error.min || Brand.brandWeight.$error.max" class="errorMsg">{{r.weight.min}}〜{{r.weight.max}}kgの範囲内で入力ください。</span>
+				<span ng-show="Brand.brandWeight.$dirty && Brand.brandWeight.$error.required" class="errorMsg">この項目は必須項目です。</span>
+			</fieldset>
 
-			<label for="BrandWaist">ウエスト：
-				<select name="brandWaist" id="BrandWaist" ng-model="d.brandWaist" ng-options="">
-					<option value="">そのまま</option>
-				</select>
-			</label>
+			<button class="btn alone icon next" type="button" ng-click="goStep(1, $event)" ng-disabled="Brand.$invalid">サイズ調整へ進む</button>
+		</form>
 
-			<label for="BrandArm">二の腕：
-				<select name="brandArm" id="BrandArm" ng-model="d.brandArm" ng-options="">
-					<option value="">そのまま</option>
-				</select>
-			</label>
+		<form name="BrandAdjust" id="BrandAdjust">
+			<h2>サイズ調整<small>(2/2)</small></h2>
 
-			<label for="BrandWrist">手首：
-				<select name="brandWrist" id="BrandWrist" ng-model="d.brandWrist" ng-options="">
-					<option value="">そのまま</option>
-				</select>
-			</label>
+			<strong>ご記入いただいたシャツから<br>調整したい箇所を選択ください</strong>
 
-			<label for="BrandShoulderWidth">肩幅：
-				<select name="brandShoulderWidth" id="BrandShoulderWidth" ng-options="">
-					<option value="">そのまま</option>
-				</select>
-			</label>
+			<div class="tbl">
+				<div class="cell">
+					<label for="BrandNeck">首回り</label>
+					<select name="brandNeck" id="BrandNeck" ng-model="b.neck" ng-options="s.label for s in sizeAdjust"></select>
+				</div>
 
-			<label for="BrandSleeveLength">袖丈：
-				<select name="brandSleeveLength" id="BrandSleeveLength" ng-options="">
-					<option value="">そのまま</option>
-				</select>
-			</label>
+				<div class="cell">
+					<label for="BrandChest">胸囲</label>
+					<select name="brandChest" id="BrandChest" ng-model="b.chest" ng-options="s.label for s in sizeAdjust"></select>
+				</div>
+			</div>
 
-			<label for="BrandDressLength">着丈：
-				<select name="brandDressLength" id="BrandDressLength" ng-options="">
-					<option value="">そのまま</option>
-				</select>
-			</label>
-		</article>
+			<div class="tbl">
+				<div class="cell">
+					<label for="BrandWaist">ウエスト</label>
+					<select name="brandWaist" id="BrandWaist" ng-model="b.waist" ng-options="s.label for s in sizeAdjust"></select>
+				</div>
+
+				<div class="cell">
+					<label for="BrandArm">二の腕</label>
+					<select name="brandArm" id="BrandArm" ng-model="b.arm" ng-options="s.label for s in sizeAdjust"></select>
+				</div>
+			</div>
+
+			<div class="tbl">
+				<div class="cell">
+					<label for="BrandWrist">手首</label>
+					<select name="brandWrist" id="BrandWrist" ng-model="b.wrist" ng-options="s.label for s in sizeAdjust"></select>
+				</div>
+
+				<div class="cell">
+					<label for="BrandShoulderWidth">肩幅</label>
+					<select name="brandShoulderWidth" id="BrandShoulderWidth" ng-model="b.shoulderWidth" ng-options="s.label for s in sizeAdjust"></select>
+				</div>
+			</div>
+
+			<div class="tbl">
+				<div class="cell">
+					<label for="BrandSleeveLength">袖丈</label>
+					<select name="brandSleeveLength" id="BrandSleeveLength" ng-model="b.sleeveLength" ng-options="s.label for s in sizeAdjust"></select>
+				</div>
+
+				<div class="cell">
+					<label for="BrandDressLength">着丈</label>
+					<select name="brandDressLength" id="BrandDressLength" ng-model="b.dressLength" ng-options="s.label for s in sizeAdjust"></select>
+				</div>
+			</div>
+
+			<button class="btn icon prev" type="button" ng-click="goStep(0, $event)">基本情報に戻る</button>
+			<button class="btn icon basket" type="button" ng-click="addCart()">カートに入れる</button>
+
+		</form>
 	</div>
 </div>

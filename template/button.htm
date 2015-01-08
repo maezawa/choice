@@ -1,12 +1,25 @@
-<header>
-	ボタン
-	<nav>
-		<a ng-href="/choice/shirtdesign/cuff" class="btn icon left small darkGray"></a>
-		<a ng-href="/choice/shirtdesign/thread" class="btn icon right small darkGray"></a>
+<div id="ButtonCtrl" ng-controller="DesignCtrl" ng-init="init('button')">
+	<div class="desc hidden"></div>
+	<header>
+		<select id="steps" ng-model="stepx" ng-options="s.label for s in steps" ng-change="goStep()"></select>
+
+		<nav>
+			<a ng-href="/shirtdesign/cuff/" class="btn icon left small darkGray"></a>
+			<a ng-href="/shirtdesign/thread/" class="btn icon right small darkGray"></a>
+		</nav>
+	</header>
+	<nav class="select">
+		<h2>プラスチックボタン</h2>
+		<label ng-repeat="p in datas | filter:'プラスチックボタン'" ng-class="{'on': p.id == data.selected}" style="background-image: url('/img/design/select/button/{{p.id}}.png')">
+			<input type="radio" id="btn_pla{{p.id}}" name="button" ng-model="data.selected" ng-value="{{p.id}}" value="{{p.id}}">
+		</label>
+
+		<h2>シェルボタン</h2>
+		<label ng-repeat="t in datas | filter:'シェルボタン'" ng-class="{'on': t.id == data.selected}" style="background-image: url('/img/design/select/button/{{t.id}}.png')">
+			<input type="radio" id="btn_shl{{t.id}}" name="button" ng-model="data.selected" ng-value="{{t.id}}" value="{{t.id}}">
+		</label>
+
+		<a ng-href="/shirtdesign/confirm/" class="btn full_size mt20" ng-if="isComplete" ng-click="saveCurrentOrder()">デザインの確認</a>
 	</nav>
-</header>
-<div id="ButtonCtrl" ng-controller="DesignCtrl">
-	<label ng-repeat="t in datas" ng-class="{'on': $index + 1 == data.selected}">
-		<input type="radio" id="button{{$index}}" name="button" ng-model="data.selected" ng-value="{{t.id}}" value="{{t.id}}">{{t.name}}
-	</label>
+
 </div>
