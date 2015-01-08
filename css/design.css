@@ -1,0 +1,673 @@
+@font-face {
+	font-family: 'choice';
+	src: url(./font/choice.eot);
+	src: url(./font/choice.eot) format('embedded-opentype'),
+	url(./font/choice.woff) format('woff'),
+	url(./font/choice.ttf) format('truetype'),
+	url(./font/choice.svg) format('svg')
+}
+
+h2, h3 { text-align: center }
+
+input {
+	border-radius: 4px;
+	-webkit-appearance: none;
+	border: 1px solid #bbb;
+	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding: .5em;
+	margin: 0 .5em 0 0;
+	box-shadow: inset 2px 2px 3px rgba(0,0,0,.2);
+}
+
+input, select, button { outline: none }
+
+label { display: inline-block }
+
+p { margin: 1em 0 }
+
+/* ID Def */
+#Display {
+	position: relative;
+	width: 100vw;
+	height: 100vw;
+	max-width: 380px;
+	max-height: 380px;
+	margin: 0 auto;
+}
+
+#Canvas {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	margin: 0 auto;
+}
+
+#Zoom {
+	width: 100vw;
+	height: 100vw;
+	max-width: 960px;
+	max-height: 960px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	zoom: 1.2
+}
+
+#Canvas img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	max-width: 380px;
+	max-height: 380px;
+}
+
+#Zoom img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	max-width: 960px;
+	max-height: 960px;
+}
+
+
+#Canvas .rotate {
+	height: 36px;
+	top: 40px;
+	width: 46px;
+	z-index: 20
+}
+
+.rotate.left { left: 0 }
+.rotate.right { right: 0}
+
+#Navigation {
+	/*background: #f0f0f0;*/
+	height: calc(100vh - 100vw + 40px);
+	min-height: calc(100vh - 480px + 40px);
+}
+
+#Navigation header {
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555), color-stop(100%, #000));
+	background-image: -webkit-linear-gradient(#555, #000);
+	background-image: -moz-linear-gradient(#555, #000);
+	background-image: -o-linear-gradient(#555, #000);
+	background-image: -ms-linear-gradient(#555, #000);
+	background-image: linear-gradient(#555, #000);
+	color: #fff;
+	font-size: 1.8rem;
+	padding: .5em;
+	position: relative;
+	text-align: center;
+}
+
+#Navigation header a {
+	position: absolute;
+	top: 1rem;
+}
+
+#Navigation a.left {	left: 10px }
+#Navigation a.right {	right: 10px }
+
+#Navigation header .btn {
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777), color-stop(0%, #353535), color-stop(100%, #000));
+	background-image: -webkit-linear-gradient(#777, #353535, #000);
+	background-image: -moz-linear-gradient(#777, #353535, #000);
+	background-image: -o-linear-gradient(#777, #353535, #000);
+	background-image: -ms-linear-gradient(#777, #353535, #000);
+	background-image: linear-gradient(#777, #353535, #000);
+	box-shadow: inset 0 1px 0 #999, 0 1px 1px black;
+	border-radius: 2.4rem;
+	font-size: 1.4rem;
+	font-weight: bold;
+	padding: 0;
+	height: 2.8rem;
+	width: 2.8rem;
+}
+
+#Navigation div { position: relative }
+#Navigation .select {
+	background: #fff;
+	height: calc(100% - 8em);
+	overflow-y: scroll;
+	width: 100%;
+	padding: 5px;
+	margin: 0 auto;
+}
+
+#TextureCtrl { height: 100% }
+
+#TextureCtrl label,
+#CollarCtrl label,
+#CuffCtrl label,
+#ButtonCtrl label,
+#ThreadCtrl label,
+#FrontCtrl label,
+label.embColor,
+label.embPos,
+label.embFont {
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	display: inline-block;
+	margin: 0 2px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 0 2px #999;
+}
+
+label.embColor { background-repeat: repeat }
+
+#TextureCtrl label { 	height: 48px; width: 48px; background-size: initial }
+#ButtonCtrl label { height: 95px; width: 95px }
+#CollarCtrl label, #CuffCtrl label { height: 150px; width: 150px }
+#ThreadCtrl label { height: 69px; width: 100%; max-width: 348px }
+#FrontCtrl label { height: 213px; width: calc(50% - 5px); max-width: 173px }
+label.embColor { height: 52px; width: 52px }
+label.embPos { height: 150px; width: 150px }
+label.embFont { height: 37px; width: 171px }
+
+#TextureCtrl label:hover, #CollarCtrl label:hover, #CuffCtrl label:hover, #ButtonCtrl label:hover, #ThreadCtrl label:hover, #FrontCtrl label:hover, label.embColor:hover, label.embPos:hover, label.embFont:hover { cursor: pointer }
+
+#TextureCtrl label.on,
+#CollarCtrl label.on,
+#CuffCtrl label.on,
+#ButtonCtrl label.on,
+#ThreadCtrl label.on,
+#FrontCtrl label.on,
+label.embColor.on,
+label.embPos.on,
+label.embFont.on,
+.silhouette.on{
+	border: 1px solid #ff69be !important;
+	-webkit-box-shadow: inset 0 0 2px 3px #ff69be;
+	-moz-box-shadow: inset 0 0 2px 3px #ff69be;
+	box-shadow: inset 0 0 2px 3px #ff69be;
+}
+
+#TextureCtrl label.on:before,
+#CollarCtrl label.on:before,
+#CuffCtrl label.on:before,
+#ButtonCtrl label.on:before,
+#ThreadCtrl label.on:before,
+#FrontCtrl label.on:before,
+label.embColor.on:before,
+label.embPos.on:before {
+	position: absolute;
+	font-family: choice;
+	color: #fff;
+	font-size: 2rem;
+	width: 1em;
+	height: 1em;
+	border: 1px solid #77dd00;
+	border-radius: .7em;
+	background: #77dd00;
+	padding: .2em;
+	content: '\e807';
+	top: calc(50% - .75em);
+	left: calc(50% - .75em);
+}
+
+#Navigation input[type=radio] {
+	-webkit-appearance: none;
+	display: none;
+	margin: 0;
+	padding: 0
+}
+
+#SleeveCtrl label, #ClericCtrl label, #PocketCtrl label, label.isEmb {
+	background: #999;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, .1)), color-stop(100%, rgba(0, 0, 0, .1)));
+	background-image: -webkit-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
+	background-image: -moz-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
+	background-image: -o-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
+	background-image: -ms-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
+	background-image: linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
+	border-radius: 4px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, .29);
+	color: #fff;
+	display: block;
+	font-size: 2rem;
+	/*font-weight: bold;*/
+	width: 100%;
+	margin: 0 0 5px 0;
+	padding: .5em 0;
+	text-align: center;
+	cursor: pointer;
+}
+
+#SleeveCtrl label.on, #ClericCtrl label.on, #PocketCtrl label.on, label.isEmb.on { background-color: #1da1da }
+
+
+#EmbDesign legend {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #333;
+	margin-top: .5em
+}
+
+#embName {
+	display: block;
+	font-size: 2rem;
+	border-radius: 4px;
+	width: 16em;
+	max-width: 100%;
+}
+
+#steps {
+	-webkit-appearance: none;
+	background: none;
+	border: none;
+	color: #fff;
+	font-size: 1.8rem;
+	width: calc(100% - 8em);
+	text-indent: calc(50% - 2em);
+	padding: 0;
+}
+
+#ConfirmCtrl, #DetailMeasure, #SimpleMeasure { background: #fff; overflow-y: scroll }
+#ConfirmCtrl main { width: 100%; padding: 0 10px }
+#DetailMeasure, #SimpleMeasure { padding: 10px 10px 0 }
+#DetailMeasure .btn.alone, #SimpleMeasure .btn.alone { width: 100% }
+#DetailMeasure .btn, #SimpleMeasure .btn { width: calc(50% - 15px); margin: 1.5em 5px }
+
+#Elements article {
+	width: 75%;
+	margin: 0 auto
+}
+
+#Elements fieldset, #Brand fieldset {
+	margin: 1em auto;
+	font-size: 1.5rem;
+	width: 16em;
+}
+
+#Elements label, #Brand label { font-weight: bold; margin-right: .5em }
+#Elements input, #Brand input { width: 10em }
+#DetailMeasure form, #SimpleMeasure form { text-align: center }
+#DetailMeasure input { width: 10em }
+
+#Shape label {
+	border: 1px solid #999;
+	border-radius: 4px;
+	background-size: contain;
+	display: inline-block;
+	width: calc(100% / 3 - 10px);
+	height: calc(100vw / 3 - 10px);
+	max-width: 257px;
+	max-height: 257px;
+	background-repeat: no-repeat;
+}
+
+#Shape fieldset { margin: 0 10px; text-align: center }
+#Shape h2 > small { font-size: 60% }
+
+#BrandAdjust label {
+	display: block;
+	font-size: 1.5rem;
+	font-weight: bold
+}
+
+#SimpleMeasure strong {
+	display: inline-block;
+	font-weight: normal;
+	padding: .5em 3em;
+	background: #333;
+	color: #fff;
+	margin: 1em auto;
+}
+
+#SimpleMeasure strong small { font-size: 60%; padding: 0 0 0 .5em }
+
+#BrandAdjust select {
+	-webkit-appearance: none;
+	background: #fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAMAAAABFhU/AAAAPFBMVEUAAAAzMzP4+PgaGhokJCQuLi5LS0uZmZmlpaXR0dHb29vk5OTq6ury8vL8/Pw2NjY/Pz9XV1daWloAAAArksoVAAAAE3RSTlMAzAfl29G0ZlouJBsVDQPJwKilddhHTAAAAERJREFUCNd9zUkSwCAIRNEfNINmDve/awqkyp1v29CNOQklVdyeNB8ezap6C1yLmhfWqdkY63fx+wFifY/0DVdyJXj0A8CrAoJmPNqXAAAAAElFTkSuQmCC') no-repeat  calc(100% - .25em);
+	width: 100%;
+	font-size: 1.5rem;
+	padding: .5em;
+	font-weight: bold;
+}
+
+/* Class Def. */
+.bgZoom {
+	background: rgba(0, 0, 0, .7);
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	top: 0
+}
+
+.block { display: block !important }
+
+.blur {
+	-ms-filter: blur(10px);
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px)
+}
+
+.btn {
+	background: #ff4d0f;
+	border: none;
+	color: #fff;
+	-webkit-appearance: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, .1)), color-stop(100%, rgba(0, 0, 0, .1)));
+	background-image: -webkit-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
+	background-image: -moz-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
+	background-image: -o-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
+	background-image: -ms-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
+	background-image: linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
+	-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, .29);
+	box-shadow: 0 2px 3px rgba(0, 0, 0, .29);
+	border-radius: 4px;
+	display: inline-block;
+	font-size: 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	text-overflow: ellipsis;
+	padding: .7em;
+}
+
+a.btn.general {
+	border: none;
+	color: #fff;
+	text-shadow: none;
+	text-align: center;
+	padding: .5em;
+	font-size: 1.5rem;
+}
+
+.btn.small { height: 2.4rem; width: 2.4rem }
+
+.btn.small:before {
+	font-size: 1.5em;
+	line-height: 1.25
+}
+
+.btn.darkGray { background: #1a1a1a }
+.btn.blue { background: #1da1da }
+.btn.basket:before { content: '\e808'; margin-right: 1em }
+.btn.icon:before { color: #fff; font-family: choice }
+.btn.icon.left:before, .prev:before { content: '\e812' }
+.btn.icon.right:before { content: '\e813' }
+.prev:before { font-size: 2rem; margin: 0 .75em 0 }
+.btn.icon.next:after {
+	font-family: choice;
+	font-size: 2rem;
+	content: '\e813';
+	margin: 0 0 0 .75em;
+}
+
+.groupBtn { text-align: center; margin: 0  0 1em }
+
+.groupBtn label {
+	color: #666;
+	border: 1px solid #ccc;
+	font-size: 1.4rem;
+	padding: .75em 1em;
+	background: -moz-linear-gradient(top, #fdfdfd 0%, #f2f2f2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdfdfd), color-stop(100%, #f2f2f2));
+	background: -webkit-linear-gradient(top, #fdfdfd 0%, #f2f2f2 100%);
+	background: -o-linear-gradient(top, #fdfdfd 0%, #f2f2f2 100%);
+	background: -ms-linear-gradient(top, #fdfdfd 0%, #f2f2f2 100%);
+	background: linear-gradient(to bottom, #fdfdfd 0%, #f2f2f2 100%);
+}
+
+.groupBtn .on {
+	color: #fff;
+	background: -moz-linear-gradient(top, #03364b 0%, #456b7a 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #03364b), color-stop(100%, #456b7a));
+	background: -webkit-linear-gradient(top, #03364b 0%, #456b7a 100%);
+	background: -o-linear-gradient(top, #03364b 0%, #456b7a 100%);
+	background: -ms-linear-gradient(top, #03364b 0%, #456b7a 100%);
+	background: linear-gradient(to bottom, #03364b 0%, #456b7a 100%);
+}
+
+.groupBtn label:first-child { border-radius: 8px 0 0 8px }
+.groupBtn label:last-child  { border-radius: 0 8px 8px 0; margin-left: -1px }
+
+.confirmParts {
+	margin: 5px 2px;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	flex: 1
+}
+
+.confirmParts h3 {
+	background: #333;
+	color: #fff;
+	text-align: center;
+	margin: 0;
+	padding: .25em 0;
+	border: 1px solid #333;
+}
+
+.confirmParts a.btn.general { width: 100%; font-size: 80%; margin: 3px 0 0; }
+.confirmParts > div {
+	background-color: #fff;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position-x: 50%;
+	border: 1px solid #333;
+	overflow: hidden;
+	height: 100px
+}
+
+.embName {
+	background: #f0f0f0;
+	border: none !important;
+	font-size: 1.25rem;
+	padding: 3px
+}
+
+.confirmParts.flex, .confirmParts.thread{ margin: 5px 2px }
+
+.flex {
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	flex: 1
+}
+
+.tbl {
+	display: table;
+	margin: 0 auto;
+	padding: .5em;
+	text-align: left;
+	width: 100%
+}
+
+.cell { display: table-cell; padding: .25em 1em }
+.full_size { width: 100% }
+
+.confirmSelect {
+	display: inline-block;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: none;
+	font-size: 1.25rem;
+	border-radius: 0;
+	border: none;
+	padding: .7em
+}
+
+.desc {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: -moz-flex;
+	background: rgba(0, 0, 0, .6);
+	color: #fff;
+	padding: .25em 10px;
+	line-height: 1.25;
+	height: 4.5em;
+}
+
+.desc .name {
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	font-size: 1.2rem;
+	font-weight: bold;
+	flex: 1;
+	padding: 0 1em 0 0;
+}
+
+.dFlex {
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: -moz-flex;
+}
+
+.hAuto { height: auto !important }
+
+.zoom-in, .zoom-out {
+	border: none;
+	box-shadow: none;
+	background: none;
+	color: #666;
+	font-size: 1.75rem;
+	text-shadow: none;
+	top: 100px;
+	font-family: choice;
+	position: absolute;
+	right: 0;
+	z-index: 22;
+}
+
+.zoom-out { bottom: initial; top: 50px; right: 35vw; color: #fff; zoom: .75 }
+.box_center { margin: 0 auto !important; }
+.txt_center { text-align: center }
+.content { font-size: 1rem; width: 16rem }
+.hidden { visibility: hidden }
+.mt10 { margin-top: 10px !important }
+.mt20 { margin-top: 20px !important }
+.p0 { padding: 0 !important }
+.z1 { z-index: 1 }
+.z2 { z-index: 2 }
+.z3 { z-index: 3 }
+.z4 { z-index: 4 }
+.z5 { z-index: 5 }
+.z6 { z-index: 6 }
+.z7 { z-index: 7 }
+.z8 { z-index: 8 }
+.z9 { z-index: 9 }
+.z10 { z-index: 10 }
+
+
+@media screen and (min-width: 840px) {
+	#Display {
+		display: block !important;
+		margin: 0;
+		max-width: 480px;
+		max-height: 480px
+	}
+
+	#Canvas img {
+		max-width: 640px;
+		max-height: 640px
+	}
+
+	#Navigation {
+		position: absolute;
+		top: 0;
+		left: 520px;
+		height: 100%;
+		min-height: 0;
+		width: 560px;
+		overflow-y: scroll;
+	}
+
+	#Navigation header {
+		box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+	}
+
+	#Navigation > div { height: 100% }
+
+	#Navigation .select, #ConfirmCtrl, #DetailMeasure, #SimpleMeasure {
+		border: 1px solid #999;
+		height: calc(100% - 9em);
+		box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+		padding: 10px;
+	}
+
+	#DetailMeasure .btn.alone, #SimpleMeasure .btn.alone { width: 50% }
+	#DetailMeasure .btn, #SimpleMeasure .btn { width: calc(50% - 15px); margin: 1.5em 5px }
+
+	#Zoom {
+		max-width: none;
+		max-height: none;
+		height: calc(100vh - 300px);
+		width: calc(100vh - 300px);
+		left: calc((100vw - (100vh - 300px)) / 2);
+		z-index: 99;
+	}
+
+	#Shape label {
+		width: 160px;
+		height: 160px;
+	}
+
+	#TextureCtrl label,
+	#CollarCtrl label,
+	#CuffCtrl label,
+	#ButtonCtrl label,
+	#ThreadCtrl label,
+	#FrontCtrl label,
+	label.embColor,
+	label.embPos,
+	label.embFont { margin: 2px 4px }
+
+	#TextureCtrl label { width: 99px; height: 99px; background-size: cover }
+
+	.desc {
+		background: rgba(255, 255, 255, .75);
+		color: #333;
+		height: 4.75em;
+		position: absolute !important;
+		bottom: 0;
+		left: 0;
+		top: initial;
+		margin: 0 0 .5em 0;
+		width: 100%;
+		padding: 1em;
+	}
+
+	.desc .name {
+		flex: initial;
+	}
+
+	.container {
+		box-shadow: inset 0 0 16px 10px #efefef;
+		position: relative;
+		margin: 10px auto 0;
+		width: 1080px;
+	}
+
+	.content {
+		-webkit-flex: 1;
+		-moz-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		font-size: 1.2rem;
+		width: auto
+	}
+
+	.rotate.left { left: 30px }
+}
+
+@media screen and (max-width: 320px) {
+	#DetailMeasure .btn, #SimpleMeasure .btn { font-size: 1.2rem; padding: .7em 5px; }
+	#DetailMeasure .btn:after, #SimpleMeasure .btn:after, #DetailMeasure .btn:before, #SimpleMeasure .btn:before { font-size: 1.5rem }
+	#DetailMeasure .btn:before, #SimpleMeasure .btn:before {	margin: 0 .5em 0 0 }
+	#DetailMeasure .btn:after, #SimpleMeasure .btn:after { margin: 0 0 0 .5em }
+}
