@@ -3,41 +3,42 @@
 var path = { url: '/shirtdesign', templ: '/template'};
 var designApp = angular.module('designApp', ['ngRoute', 'ngStorage']);
 
-designApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+designApp
+.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 	$locationProvider.html5Mode(true);
 	$routeProvider
-		.when(path.url + '/cloth/',				{templateUrl: path.templ + '/cloth.htm', controller: 'DesignCtrl'})
-		.when(path.url + '/sleeve/',	{templateUrl: path.templ + '/sleeve.htm', controller: 'DesignCtrl'})
-		.when(path.url + '/collar/',	{templateUrl: path.templ + '/collar.htm', controller: 'DesignCtrl'})
-		.when(path.url + '/cleric/',	{templateUrl: path.templ + '/cleric.htm', controller: 'DesignCtrl'})
-		.when(path.url + '/cuff/',		{templateUrl: path.templ + '/cuff.htm', controller: 'DesignCtrl'})
-		.when(path.url + '/button/', {templateUrl: path.templ + '/button.htm', controller: 'DesignCtrl'})
-		.when(path.url + '/thread/',	{templateUrl: path.templ + '/thread.htm', controller: 'DesignCtrl'})
-		.when(path.url + '/pocket/',	{templateUrl: path.templ + '/pocket.htm', controller: 'DesignCtrl'})
-		.when(path.url + '/front/',	{templateUrl: path.templ + '/front.htm', controller: 'DesignCtrl'})
-		.when(path.url + '/embroidery/',	{templateUrl: path.templ + '/embroidery.htm', controller: 'EmbroideryCtrl'})
-		.when(path.url + '/confirm/', {templateUrl: path.templ + '/confirm.htm', controller: 'ConfirmCtrl'})
-		.when(path.url + '/measure/',	{templateUrl: path.templ + '/measure.htm', controller: 'MeasureCtrl'})
+		.when(path.url + '/cloth/',				{templateUrl: path.templ + '/cloth.htm',			controller: 'DesignCtrl'})
+		.when(path.url + '/sleeve/',			{templateUrl: path.templ + '/sleeve.htm',			controller: 'DesignCtrl'})
+		.when(path.url + '/collar/',			{templateUrl: path.templ + '/collar.htm',			controller: 'DesignCtrl'})
+		.when(path.url + '/cleric/',			{templateUrl: path.templ + '/cleric.htm',			controller: 'DesignCtrl'})
+		.when(path.url + '/cuff/',				{templateUrl: path.templ + '/cuff.htm',				controller: 'DesignCtrl'})
+		.when(path.url + '/button/',			{templateUrl: path.templ + '/button.htm',			controller: 'DesignCtrl'})
+		.when(path.url + '/thread/',			{templateUrl: path.templ + '/thread.htm',			controller: 'DesignCtrl'})
+		.when(path.url + '/pocket/',			{templateUrl: path.templ + '/pocket.htm',			controller: 'DesignCtrl'})
+		.when(path.url + '/front/',				{templateUrl: path.templ + '/front.htm',			controller: 'DesignCtrl'})
+		.when(path.url + '/embroidery/',	{templateUrl: path.templ + '/embroidery.htm',	controller: 'EmbroideryCtrl'})
+		.when(path.url + '/confirm/',			{templateUrl: path.templ + '/confirm.htm',		controller: 'ConfirmCtrl'})
+		.when(path.url + '/measure/',			{templateUrl: path.templ + '/measure.htm',		controller: 'MeasureCtrl'})
 		.otherwise({redirectTo: path.url + '/cloth/'})
 }])
 
 .value('parts',{
 	cloth:		[
-							{id: 1, code: 'sh401', name: 'ブロード(ホワイト)', desc: '表面の滑らかな光沢が特徴的。'},
-							{id: 2, code: 'sh402', name: 'ロイヤルオックス', desc: 'きめ細かくシルク的な光沢さが特徴的。ドレッシーな雰囲気がありビジネスシーンにも最適。'},
-							{id: 3, code: 'sh403', name: 'ツイル(ホワイト)', desc: '柔らかく光沢あり、シワになりにくいのが特徴。肌触りも良い。'},
-							{id: 4, code: 'sh404', name: 'シャドーストライプ(ブルー)', desc: '無地のような生地。光の当たる角度で光沢が出るためお洒落が演出が可能。'},
-							{id: 5, code: 'sh405', name: 'ダイアモンドシャドーストライプ(ブルー)', desc: 'ダイヤモンドシャドーストライプ柄。パーティーなどのシーンにもオススメ。'},
-							{id: 6, code: 'sh406', name: 'ブロード(ブルー)', desc: 'サックスブルーは、同意と協調性に溢れる色です。'},
-							{id: 7, code: 'sh407', name: 'ツイル(ライトブルー)', desc: 'ツイル本来のふんわりした生地感と光沢に加えて、ブルーの包み込むようなイメージでひと味違った生地。'},
-							{id: 8, code: 'sh408', name: 'シャドーストライプ(ライトブルー)', desc: 'シャドーストライプ柄、ブルーの知的な印象で存在感が溢れ生地。'},
-							{id: 9, code: 'sh409', name: 'ダイヤモンドシャドーストライプ(ブルー)', desc: 'ビジネスシーンはもちろん、急なパーティーやディナーにも最適な生地。'},
+							{id:  1, code: 'sh401', name: 'ブロード(ホワイト)', desc: '表面の滑らかな光沢が特徴的。'},
+							{id:  2, code: 'sh402', name: 'ロイヤルオックス', desc: 'きめ細かくシルク的な光沢さが特徴的。ドレッシーな雰囲気がありビジネスシーンにも最適。'},
+							{id:  3, code: 'sh403', name: 'ツイル(ホワイト)', desc: '柔らかく光沢あり、シワになりにくいのが特徴。肌触りも良い。'},
+							{id:  4, code: 'sh404', name: 'シャドーストライプ(ブルー)', desc: '無地のような生地。光の当たる角度で光沢が出るためお洒落が演出が可能。'},
+							{id:  5, code: 'sh405', name: 'ダイアモンドシャドーストライプ(ブルー)', desc: 'ダイヤモンドシャドーストライプ柄。パーティーなどのシーンにもオススメ。'},
+							{id:  6, code: 'sh406', name: 'ブロード(ブルー)', desc: 'サックスブルーは、同意と協調性に溢れる色です。'},
+							{id:  7, code: 'sh407', name: 'ツイル(ライトブルー)', desc: 'ツイル本来のふんわりした生地感と光沢に加えて、ブルーの包み込むようなイメージでひと味違った生地。'},
+							{id:  8, code: 'sh408', name: 'シャドーストライプ(ライトブルー)', desc: 'シャドーストライプ柄、ブルーの知的な印象で存在感が溢れ生地。'},
+							{id:  9, code: 'sh409', name: 'ダイヤモンドシャドーストライプ(ブルー)', desc: 'ビジネスシーンはもちろん、急なパーティーやディナーにも最適な生地。'},
 							{id: 10, code: 'sh410', name: 'ストライプ(Narrow)', desc: 'シャープな印象を与えるストライプ柄。身長も高く見せる効果があるのでオススメ。'},
 							{id: 11, code: 'sh411', name: 'ストライプ(Bold)', desc: 'やや太めのストライプ柄。外資や海外出張が多い方にオススメ。'},
 							{id: 12, code: 'sh412', name: 'ツイル(ピンク)', desc: 'ピンクのイメージは優しさとエレガント。女性からの指示も高いピンク生地。'},
 							{id: 13, code: 'sh413', name: 'バーチカルストライプ', desc: '女性人気が高いストライプ柄。紫の神秘的な雰囲気が女性上司の心を和ませる。'},
 							{id: 15, code: 'sh415', name: 'ギンガムチェック', desc: 'ソフトなイメージ作りに一役買う。ギンガムチェック柄。'},
-							{id: 16, code: 'sh416', name: 'ヘリンボーン(ブルー)', desc: '高級紳士服であつかわれるような生地です。耐久性にも優れています。'},
+							{id: 16, code: 'sh416', name: 'ヘリンボーン(ピンク)', desc: '高級紳士服であつかわれるような生地です。耐久性にも優れています。'},
 							{id: 17, code: 'sh417', name: 'ヘリンボーン(ブルー)', desc: '高級紳士服であつかわれるような生地です。耐久性にも優れています。'},
 							{id: 18, code: 'sh418', name: 'ロンドンストライプ', desc: 'サックスブルーのストライプ柄。スーツと合わせて爽やかな印象を感じられます。'},
 							{id: 19, code: 'sh419', name: 'ツイルライト', desc: '濃い青にツイルの柔らかな光沢。誠実でクレバーな印象を与えます。'},

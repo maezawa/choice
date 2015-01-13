@@ -1,27 +1,21 @@
-@font-face {
-	font-family: 'choice';
-	src: url(./font/choice.eot);
-	src: url(./font/choice.eot) format('embedded-opentype'),
-	url(./font/choice.woff) format('woff'),
-	url(./font/choice.ttf) format('truetype'),
-	url(./font/choice.svg) format('svg')
-}
-
 h2, h3 { text-align: center }
 
 input {
-	border-radius: 4px;
-	-webkit-appearance: none;
 	border: 1px solid #bbb;
+	border-radius: 4px;
+	box-shadow: inset 2px 2px 3px rgba(0,0,0,.2);
 	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
 	font-size: 1.5rem;
 	font-weight: bold;
-	padding: .5em;
 	margin: 0 .5em 0 0;
-	box-shadow: inset 2px 2px 3px rgba(0,0,0,.2);
+	padding: .5em;
+	-webkit-appearance: none
 }
 
-input, select, button { outline: none }
+iframe {
+	height: 246px;
+	width: 437px
+}
 
 label { display: inline-block }
 
@@ -29,46 +23,46 @@ p { margin: 1em 0 }
 
 /* ID Def */
 #Display {
-	position: relative;
-	width: 100vw;
 	height: 100vw;
-	max-width: 380px;
-	max-height: 380px;
 	margin: 0 auto;
+	max-height: 380px;
+	max-width: 380px;
+	position: relative;
+	width: 100vw
 }
 
 #Canvas {
-	width: 100%;
 	height: 100%;
-	position: relative;
 	margin: 0 auto;
+	position: relative;
+	width: 100%
 }
 
 #Zoom {
-	width: 100vw;
 	height: 100vw;
-	max-width: 960px;
-	max-height: 960px;
-	position: absolute;
 	left: 0;
+	max-height: 960px;
+	max-width: 960px;
+	position: absolute;
 	top: 0;
+	width: 100vw;
 	zoom: 1.2
 }
 
 #Canvas img {
-	position: absolute;
-	width: 100%;
 	height: 100%;
-	max-width: 380px;
 	max-height: 380px;
+	max-width: 380px;
+	position: absolute;
+	width: 100%
 }
 
 #Zoom img {
-	position: absolute;
-	width: 100%;
 	height: 100%;
-	max-width: 960px;
 	max-height: 960px;
+	max-width: 960px;
+	position: absolute;
+	width: 100%
 }
 
 
@@ -85,7 +79,7 @@ p { margin: 1em 0 }
 #Navigation {
 	/*background: #f0f0f0;*/
 	height: calc(100vh - 100vw + 40px);
-	min-height: calc(100vh - 480px + 40px);
+	min-height: calc(100vh - 480px + 40px)
 }
 
 #Navigation header {
@@ -99,12 +93,12 @@ p { margin: 1em 0 }
 	font-size: 1.8rem;
 	padding: .5em;
 	position: relative;
-	text-align: center;
+	text-align: center
 }
 
 #Navigation header a {
 	position: absolute;
-	top: 1rem;
+	top: 1rem
 }
 
 #Navigation a.left {	left: 10px }
@@ -117,23 +111,23 @@ p { margin: 1em 0 }
 	background-image: -o-linear-gradient(#777, #353535, #000);
 	background-image: -ms-linear-gradient(#777, #353535, #000);
 	background-image: linear-gradient(#777, #353535, #000);
-	box-shadow: inset 0 1px 0 #999, 0 1px 1px black;
 	border-radius: 2.4rem;
+	box-shadow: inset 0 1px 0 #999, 0 1px 1px black;
 	font-size: 1.4rem;
 	font-weight: bold;
-	padding: 0;
 	height: 2.8rem;
-	width: 2.8rem;
+	padding: 0;
+	width: 2.8rem
 }
 
 #Navigation div { position: relative }
 #Navigation .select {
 	background: #fff;
 	height: calc(100% - 8em);
-	overflow-y: scroll;
-	width: 100%;
-	padding: 5px;
 	margin: 0 auto;
+	overflow-y: scroll;
+	padding: 5px;
+	width: 100%
 }
 
 #TextureCtrl { height: 100% }
@@ -151,20 +145,20 @@ label.embFont {
 	background-size: cover;
 	border: 1px solid #aaa;
 	border-radius: 4px;
+	box-shadow: 0 0 2px #999;
 	display: inline-block;
 	margin: 0 2px;
-	position: relative;
 	overflow: hidden;
-	box-shadow: 0 0 2px #999;
+	position: relative
 }
 
 label.embColor { background-repeat: repeat }
 
-#TextureCtrl label { 	height: 48px; width: 48px; background-size: initial }
+#TextureCtrl label { 	background-size: initial; height: 48px; width: 48px }
 #ButtonCtrl label { height: 95px; width: 95px }
 #CollarCtrl label, #CuffCtrl label { height: 150px; width: 150px }
-#ThreadCtrl label { height: 69px; width: 100%; max-width: 348px }
-#FrontCtrl label { height: 213px; width: calc(50% - 5px); max-width: 173px }
+#ThreadCtrl label { height: 69px; max-width: 348px; width: 100% }
+#FrontCtrl label { height: 213px; max-width: 173px; width: calc(50% - 5px) }
 label.embColor { height: 52px; width: 52px }
 label.embPos { height: 150px; width: 150px }
 label.embFont { height: 37px; width: 171px }
@@ -182,9 +176,9 @@ label.embPos.on,
 label.embFont.on,
 .silhouette.on{
 	border: 1px solid #ff69be !important;
-	-webkit-box-shadow: inset 0 0 2px 3px #ff69be;
-	-moz-box-shadow: inset 0 0 2px 3px #ff69be;
 	box-shadow: inset 0 0 2px 3px #ff69be;
+	-moz-box-shadow: inset 0 0 2px 3px #ff69be;
+	-webkit-box-shadow: inset 0 0 2px 3px #ff69be
 }
 
 #TextureCtrl label.on:before,
@@ -195,26 +189,27 @@ label.embFont.on,
 #FrontCtrl label.on:before,
 label.embColor.on:before,
 label.embPos.on:before {
-	position: absolute;
-	font-family: choice;
-	color: #fff;
-	font-size: 2rem;
-	width: 1em;
-	height: 1em;
+	background: #77dd00;
 	border: 1px solid #77dd00;
 	border-radius: .7em;
-	background: #77dd00;
-	padding: .2em;
+	color: #fff;
 	content: '\e807';
-	top: calc(50% - .75em);
+	font-family: choice;
+	font-size: 2rem;
+	height: 1em;
 	left: calc(50% - .75em);
+	line-height: 1;
+	padding: .2em;
+	position: absolute;
+	top: calc(50% - .75em);
+	width: 1em
 }
 
 #Navigation input[type=radio] {
-	-webkit-appearance: none;
 	display: none;
 	margin: 0;
-	padding: 0
+	padding: 0;
+	-webkit-appearance: none
 }
 
 #SleeveCtrl label, #ClericCtrl label, #PocketCtrl label, label.isEmb {
@@ -228,60 +223,60 @@ label.embPos.on:before {
 	border-radius: 4px;
 	box-shadow: 0 2px 3px rgba(0, 0, 0, .29);
 	color: #fff;
+	cursor: pointer;
 	display: block;
-	font-size: 2rem;
 	/*font-weight: bold;*/
-	width: 100%;
+	font-size: 2rem;
 	margin: 0 0 5px 0;
 	padding: .5em 0;
 	text-align: center;
-	cursor: pointer;
+	width: 100%
 }
 
 #SleeveCtrl label.on, #ClericCtrl label.on, #PocketCtrl label.on, label.isEmb.on { background-color: #1da1da }
 
 
 #EmbDesign legend {
+	color: #333;
 	font-size: 1.5em;
 	font-weight: bold;
-	color: #333;
 	margin-top: .5em
 }
 
 #embName {
+	border-radius: 4px;
 	display: block;
 	font-size: 2rem;
-	border-radius: 4px;
-	width: 16em;
 	max-width: 100%;
+	width: 16em
 }
 
 #steps {
-	-webkit-appearance: none;
 	background: none;
 	border: none;
 	color: #fff;
 	font-size: 1.8rem;
-	width: calc(100% - 8em);
-	text-indent: calc(50% - 2em);
 	padding: 0;
+	text-indent: calc(50% - 2em);
+	width: calc(100% - 8em);
+	-webkit-appearance: none
 }
 
 #ConfirmCtrl, #DetailMeasure, #SimpleMeasure { background: #fff; overflow-y: scroll }
-#ConfirmCtrl main { width: 100%; padding: 0 10px }
+#ConfirmCtrl main { padding: 0 10px; width: 100% }
 #DetailMeasure, #SimpleMeasure { padding: 10px 10px 0 }
 #DetailMeasure .btn.alone, #SimpleMeasure .btn.alone { width: 100% }
-#DetailMeasure .btn, #SimpleMeasure .btn { width: calc(50% - 15px); margin: 1.5em 5px }
+#DetailMeasure .btn, #SimpleMeasure .btn { margin: 1.5em 5px; width: calc(50% - 15px) }
 
 #Elements article {
-	width: 75%;
-	margin: 0 auto
+	margin: 0 auto;
+	width: 75%
 }
 
 #Elements fieldset, #Brand fieldset {
-	margin: 1em auto;
 	font-size: 1.5rem;
-	width: 16em;
+	margin: 1em auto;
+	width: 16em
 }
 
 #Elements label, #Brand label { font-weight: bold; margin-right: .5em }
@@ -290,15 +285,15 @@ label.embPos.on:before {
 #DetailMeasure input { width: 10em }
 
 #Shape label {
+	background-repeat: no-repeat;
+	background-size: contain;
 	border: 1px solid #999;
 	border-radius: 4px;
-	background-size: contain;
 	display: inline-block;
-	width: calc(100% / 3 - 10px);
 	height: calc(100vw / 3 - 10px);
-	max-width: 257px;
 	max-height: 257px;
-	background-repeat: no-repeat;
+	max-width: 257px;
+	width: calc(100% / 3 - 10px)
 }
 
 #Shape fieldset { margin: 0 10px; text-align: center }
@@ -311,33 +306,41 @@ label.embPos.on:before {
 }
 
 #SimpleMeasure strong {
-	display: inline-block;
-	font-weight: normal;
-	padding: .5em 3em;
 	background: #333;
 	color: #fff;
+	display: inline-block;
+	font-weight: normal;
 	margin: 1em auto;
+	padding: .5em 3em
 }
 
 #SimpleMeasure strong small { font-size: 60%; padding: 0 0 0 .5em }
 
 #BrandAdjust select {
-	-webkit-appearance: none;
 	background: #fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAMAAAABFhU/AAAAPFBMVEUAAAAzMzP4+PgaGhokJCQuLi5LS0uZmZmlpaXR0dHb29vk5OTq6ury8vL8/Pw2NjY/Pz9XV1daWloAAAArksoVAAAAE3RSTlMAzAfl29G0ZlouJBsVDQPJwKilddhHTAAAAERJREFUCNd9zUkSwCAIRNEfNINmDve/awqkyp1v29CNOQklVdyeNB8ezap6C1yLmhfWqdkY63fx+wFifY/0DVdyJXj0A8CrAoJmPNqXAAAAAElFTkSuQmCC') no-repeat  calc(100% - .25em);
-	width: 100%;
 	font-size: 1.5rem;
-	padding: .5em;
 	font-weight: bold;
+	padding: .5em;
+	width: 100%;
+	-webkit-appearance: none
+}
+
+#cotton {
+	bottom: .5em;
+	font-size: 75%;
+	font-weight: bold;
+	position: absolute !important;
+	right: 10px
 }
 
 /* Class Def. */
 .bgZoom {
 	background: rgba(0, 0, 0, .7);
-	width: 100vw;
 	height: 100vh;
-	position: absolute;
 	left: 0;
-	top: 0
+	position: absolute;
+	top: 0;
+	width: 100vw
 }
 
 .block { display: block !important }
@@ -350,36 +353,36 @@ label.embPos.on:before {
 
 .btn {
 	background: #ff4d0f;
-	border: none;
-	color: #fff;
-	-webkit-appearance: none;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, .1)), color-stop(100%, rgba(0, 0, 0, .1)));
 	background-image: -webkit-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
 	background-image: -moz-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
 	background-image: -o-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
 	background-image: -ms-linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
 	background-image: linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .1));
-	-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, .29);
-	box-shadow: 0 2px 3px rgba(0, 0, 0, .29);
+	border: none;
 	border-radius: 4px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, .29);
+	-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, .29);
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	color: #fff;
 	display: inline-block;
 	font-size: 1.5rem;
+	padding: .7em;
 	text-align: center;
 	text-decoration: none;
 	text-overflow: ellipsis;
-	padding: .7em;
+	-webkit-appearance: none
 }
 
 a.btn.general {
 	border: none;
 	color: #fff;
-	text-shadow: none;
-	text-align: center;
-	padding: .5em;
 	font-size: 1.5rem;
+	padding: .5em;
+	text-align: center;
+	text-shadow: none
 }
 
 .btn.small { height: 2.4rem; width: 2.4rem }
@@ -397,35 +400,35 @@ a.btn.general {
 .btn.icon.right:before { content: '\e813' }
 .prev:before { font-size: 2rem; margin: 0 .75em 0 }
 .btn.icon.next:after {
+	content: '\e813';
 	font-family: choice;
 	font-size: 2rem;
-	content: '\e813';
-	margin: 0 0 0 .75em;
+	margin: 0 0 0 .75em
 }
 
-.groupBtn { text-align: center; margin: 0  0 1em }
+.groupBtn { margin: 0  0 1em; text-align: center }
 
 .groupBtn label {
-	color: #666;
-	border: 1px solid #ccc;
-	font-size: 1.4rem;
-	padding: .75em 1em;
 	background: -moz-linear-gradient(top, #fdfdfd 0%, #f2f2f2 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdfdfd), color-stop(100%, #f2f2f2));
 	background: -webkit-linear-gradient(top, #fdfdfd 0%, #f2f2f2 100%);
 	background: -o-linear-gradient(top, #fdfdfd 0%, #f2f2f2 100%);
 	background: -ms-linear-gradient(top, #fdfdfd 0%, #f2f2f2 100%);
 	background: linear-gradient(to bottom, #fdfdfd 0%, #f2f2f2 100%);
+	border: 1px solid #ccc;
+	color: #666;
+	font-size: 1.4rem;
+	padding: .75em 1em
 }
 
 .groupBtn .on {
-	color: #fff;
 	background: -moz-linear-gradient(top, #03364b 0%, #456b7a 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #03364b), color-stop(100%, #456b7a));
 	background: -webkit-linear-gradient(top, #03364b 0%, #456b7a 100%);
 	background: -o-linear-gradient(top, #03364b 0%, #456b7a 100%);
 	background: -ms-linear-gradient(top, #03364b 0%, #456b7a 100%);
 	background: linear-gradient(to bottom, #03364b 0%, #456b7a 100%);
+	color: #fff
 }
 
 .groupBtn label:first-child { border-radius: 8px 0 0 8px }
@@ -441,22 +444,22 @@ a.btn.general {
 
 .confirmParts h3 {
 	background: #333;
+	border: 1px solid #333;
 	color: #fff;
-	text-align: center;
 	margin: 0;
 	padding: .25em 0;
-	border: 1px solid #333;
+	text-align: center
 }
 
-.confirmParts a.btn.general { width: 100%; font-size: 80%; margin: 3px 0 0; }
+.confirmParts a.btn.general { font-size: 80%; margin: 3px 0 0; width: 100%; }
 .confirmParts > div {
 	background-color: #fff;
-	background-size: contain;
-	background-repeat: no-repeat;
 	background-position-x: 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
 	border: 1px solid #333;
-	overflow: hidden;
-	height: 100px
+	height: 100px;
+	overflow: hidden
 }
 
 .embName {
@@ -487,38 +490,38 @@ a.btn.general {
 .full_size { width: 100% }
 
 .confirmSelect {
-	display: inline-block;
-	font-weight: bold;
-	text-align: center;
-	text-shadow: none;
-	font-size: 1.25rem;
-	border-radius: 0;
 	border: none;
-	padding: .7em
+	border-radius: 0;
+	display: inline-block;
+	font-size: 1.25rem;
+	font-weight: bold;
+	padding: .7em;
+	text-align: center;
+	text-shadow: none
 }
 
 .desc {
-	position: absolute;
-	top: 0;
-	left: 0;
+	background: rgba(0, 0, 0, .6);
+	color: #fff;
 	display: flex;
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: -moz-flex;
-	background: rgba(0, 0, 0, .6);
-	color: #fff;
-	padding: .25em 10px;
-	line-height: 1.25;
 	height: 4.5em;
+	left: 0;
+	line-height: 1.25;
+	padding: .25em 10px;
+	position: absolute;
+	top: 0
 }
 
 .desc .name {
-	-webkit-flex: 1;
-	-moz-flex: 1;
 	font-size: 1.2rem;
 	font-weight: bold;
-	flex: 1;
 	padding: 0 1em 0 0;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	flex: 1
 }
 
 .dFlex {
@@ -531,21 +534,21 @@ a.btn.general {
 .hAuto { height: auto !important }
 
 .zoom-in, .zoom-out {
+	background: none;
 	border: none;
 	box-shadow: none;
-	background: none;
 	color: #666;
-	font-size: 1.75rem;
-	text-shadow: none;
-	top: 100px;
 	font-family: choice;
+	font-size: 1.75rem;
 	position: absolute;
 	right: 0;
-	z-index: 22;
+	text-shadow: none;
+	top: 100px;
+	z-index: 22
 }
 
-.zoom-out { bottom: initial; top: 50px; right: 35vw; color: #fff; zoom: .75 }
-.box_center { margin: 0 auto !important; }
+.zoom-out { bottom: initial; color: #fff; right: 35vw; top: 50px; zoom: .75 }
+.box_center { margin: 0 auto !important }
 .txt_center { text-align: center }
 .content { font-size: 1rem; width: 16rem }
 .hidden { visibility: hidden }
@@ -568,53 +571,57 @@ a.btn.general {
 	#Display {
 		display: block !important;
 		margin: 0;
-		max-width: 480px;
-		max-height: 480px
+		max-height: 480px;
+		max-width: 480px
 	}
 
 	#Canvas img {
-		max-width: 640px;
-		max-height: 640px
+		max-height: 640px;
+		max-width: 640px
 	}
 
 	#Navigation {
+		height: 100%;
+		left: 520px;
+		min-height: 0;
+		overflow-y: scroll;
 		position: absolute;
 		top: 0;
-		left: 520px;
-		height: 100%;
-		min-height: 0;
-		width: 560px;
-		overflow-y: scroll;
+		width: 560px
 	}
 
-	#Navigation header {
-		box-shadow: 0 0 7px rgba(0, 0, 0, .5);
-	}
-
+	#Navigation header { box-shadow: 0 0 7px rgba(0, 0, 0, .5) }
 	#Navigation > div { height: 100% }
 
 	#Navigation .select, #ConfirmCtrl, #DetailMeasure, #SimpleMeasure {
 		border: 1px solid #999;
-		height: calc(100% - 9em);
 		box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+		height: calc(100% - 9em);
 		padding: 10px;
 	}
 
 	#DetailMeasure .btn.alone, #SimpleMeasure .btn.alone { width: 50% }
-	#DetailMeasure .btn, #SimpleMeasure .btn { width: calc(50% - 15px); margin: 1.5em 5px }
+	#DetailMeasure .btn, #SimpleMeasure .btn { margin: 1.5em 5px; width: calc(50% - 15px) }
+	#DetailMeasure iframe + p {
+		margin: -4px auto 2em;
+		padding: .75em;
+		background: #333;
+		color: #fff;
+		width: 437px
+	}
 
 	#Zoom {
-		max-width: none;
-		max-height: none;
 		height: calc(100vh - 300px);
-		width: calc(100vh - 300px);
 		left: calc((100vw - (100vh - 300px)) / 2);
-		z-index: 99;
+		max-height: none;
+		max-width: none;
+		width: calc(100vh - 300px);
+		z-index: 99
 	}
 
 	#Shape label {
-		width: 160px;
 		height: 160px;
+		width: 160px
 	}
 
 	#TextureCtrl label,
@@ -627,46 +634,52 @@ a.btn.general {
 	label.embPos,
 	label.embFont { margin: 2px 4px }
 
-	#TextureCtrl label { width: 99px; height: 99px; background-size: cover }
+	#TextureCtrl label { background-size: cover; height: 99px; width: 99px }
 
 	.desc {
 		background: rgba(255, 255, 255, .75);
+		bottom: 0;
 		color: #333;
 		height: 4.75em;
-		position: absolute !important;
-		bottom: 0;
 		left: 0;
-		top: initial;
 		margin: 0 0 .5em 0;
-		width: 100%;
 		padding: 1em;
+		position: absolute !important;
+		top: initial;
+		width: 100%
 	}
 
-	.desc .name {
-		flex: initial;
-	}
+	.desc .name { flex: initial }
 
 	.container {
 		box-shadow: inset 0 0 16px 10px #efefef;
-		position: relative;
 		margin: 10px auto 0;
-		width: 1080px;
+		position: relative;
+		width: 1080px
 	}
 
 	.content {
+		font-size: 1.2rem;
+		width: auto;
 		-webkit-flex: 1;
 		-moz-flex: 1;
 		-ms-flex: 1;
-		flex: 1;
-		font-size: 1.2rem;
-		width: auto
+		flex: 1
 	}
 
 	.rotate.left { left: 30px }
 }
 
 @media screen and (max-width: 320px) {
-	#DetailMeasure .btn, #SimpleMeasure .btn { font-size: 1.2rem; padding: .7em 5px; }
+	iframe { height: 160px; width: 284px }
+	#DetailMeasure iframe + p {
+		margin: -4px auto 2em;
+		padding: .75em;
+		background: #333;
+		color: #fff;
+		width: 284px
+	}
+	#DetailMeasure .btn, #SimpleMeasure .btn { font-size: 1.2rem; padding: .7em 5px }
 	#DetailMeasure .btn:after, #SimpleMeasure .btn:after, #DetailMeasure .btn:before, #SimpleMeasure .btn:before { font-size: 1.5rem }
 	#DetailMeasure .btn:before, #SimpleMeasure .btn:before {	margin: 0 .5em 0 0 }
 	#DetailMeasure .btn:after, #SimpleMeasure .btn:after { margin: 0 0 0 .5em }

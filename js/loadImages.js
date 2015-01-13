@@ -1,6 +1,6 @@
 (function(){
 	setTimeout(function(){
-		var cloth_bg = new Array();
+		var cloth_bg = [];
 
 		for (var i = 0; i < 21; i++){
 			cloth_bg.push(new Image());

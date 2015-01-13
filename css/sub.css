@@ -1,20 +1,29 @@
 @charset "UTF-8";
 
-.content{
-	font-size: 1.2rem;
-	margin: 30px auto 0;
+#shipping {
+	border-collapse: separate;
+	border-spacing: 8px 0;
+	margin: 0 auto
 }
 
-.content h2{font-size: 1.6rem;}
+#shipping thead {
+	background: #666;
+	color: #fff;
+	font-weight: bold;
+}
 
-.content h1{
-	color: #bb8522;
-	font-size: 20px;
+#shipping td {
+	border: 1px solid #ccc;
+	border-top: none;
+	font-size: 1.5rem;
+	padding: .5em 0;
 	text-align: center;
-	font-weight: normal;
-	letter-spacing: 4px;
-	margin-top: 4em;
-	margin-bottom: 3em;
+	width: 15em;
+}
+
+#shipping th {
+	letter-spacing: .25em;
+	padding: .5em 1em
 }
 
 #title{
@@ -79,114 +88,31 @@
 	display: flex;
 	margin: 0 auto;
 }
-.qa .box{
-	min-width: 320px;
-	max-width: 840px;
-	width: 80%;
-	border-radius: 0 0 10px 10px;
-	background-color: #fff;
-	margin: 0 auto 20px;
-}
-.qa .box dl{padding: 0 15px 10px;}
 
-@media screen and (min-width: 701px) {
-	.qa .box dl{
-		display: inline-block;
-		width: 44%;
+#QA h2 + div {
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	flex-flow: row wrap;
+}
+
+@media screen and (max-width: 840px) {
+
+	#QA h2 + div {
+		display: block;
 	}
+
 }
 
-.qa .box dt{
+#QA dt{
 	color: #d59828;
-	padding: 20px 15px 10px;
+	padding: 1em 0 0 0;
 	font-size: 1.4rem;
-}
-.qa .box dd{
-	margin-left: 2em;
-	font-size: 1.2rem;
+	font-weight: bold;
 }
 
-.qa h2{
-	line-height: 50px;
-	color: #03364b;
-	background-color: #fff;
-	border-radius: 10px 10px 0 0;
-	min-width: 320px;
-	max-width: 840px;
-	width: 80%;
-	margin: 0 auto;
-	text-indent: 1em;
-	border-bottom-color: #a5a5a5;
-	border-bottom-style: solid;
-	border-width: 1px;
-}
-
-.clear {
-	clear:both;
-}
-
-.fee .box{
-	min-width: 320px;
-	max-width: 840px;
-	width: 80%;
-	border-radius: 0 0 10px 10px;
-	background-color: #fff;
-	margin: 0 auto 20px;
-}
-
-.fee .box p{
-	font-size: 1.4rem;
-	padding: 0 2em;
-	line-height: 1.5em;
-}
-
-
-.fee h2{
-	line-height: 50px;
-	color: #03364b;
-	background-color: #fff;
-	border-radius: 10px 10px 0 0;
-	min-width: 320px;
-	max-width: 840px;
-	width: 80%;
-	margin: 0 auto;
-	text-indent: 1em;
-	border-bottom-color: #a5a5a5;
-	border-bottom-style: solid;
-	border-width: 1px;
-}
-
-.fee h3{
-	color: #d59828;
-	padding: 20px 15px 10px;
-	font-size: 1.6rem;
-}
-
-.fee .box-gray div{
-	width: 15em;
-	display: inline-block;
-	margin-left: 10px;
-	margin-bottom: 10px;
-}
-
-.fee .box-gray h4{
-	color: #fff;
-	background-color: gray;
-	text-align: center;
-	line-height: 2em;
-}
-
-.fee .box-gray p{
-	text-align: center;
-	padding: 0;
-	line-height: 3em;
-	border-style: solid;
-	border-color: gray;
-	border-width: 2px;
-}
-
-.box-gray div:first-child{
-	margin-left: 40px;
+#QA dd{
+	margin: 0
 }
 
 #img_card{
@@ -209,22 +135,6 @@
 
 #img_payeasy{
 	margin-left: 30px;
-}
-
-.fee h4{
-	line-height: 2em;
-	font-size: 1.4rem;
-	text-indent: 2em;
-}
-
-.fee ul{
-	padding: 0 2em 0 5em;
-}
-
-.fee li{
-	list-style-type: disc;
-	line-height: 1.3em;
-	font-size: 1.2rem;
 }
 
 .history .top{

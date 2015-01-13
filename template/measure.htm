@@ -43,13 +43,13 @@
 			<br>
 
 			<fieldset>
-				<label ng-class="{'on': shape.selected == 1}" style="background-image: url('/img/design/measure/slim.png')" class="silhouette">
+				<label ng-class="{'on': d.shape.selected == 1}" style="background-image: url('/img/design/measure/slim.png')" class="silhouette">
 					<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="1">
 				</label>
-				<label ng-class="{'on': shape.selected == 2}" style="background-image: url('/img/design/measure/normal.png')" class="silhouette">
+				<label ng-class="{'on': d.shape.selected == 2}" style="background-image: url('/img/design/measure/normal.png')" class="silhouette">
 					<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="2">
 				</label>
-				<label ng-class="{'on': shape.selected == 3}" style="background-image: url('/img/design/measure/wide.png')" class="silhouette">
+				<label ng-class="{'on': d.shape.selected == 3}" style="background-image: url('/img/design/measure/wide.png')" class="silhouette">
 					<input type="radio" name="shape" ng-model="d.shape.selected" ng-value="3">
 				</label>
 			</fieldset>
@@ -60,6 +60,8 @@
 
 		<form name="Neck" id="Neck">
 			<h2>首回り<small>(3/10)</small></h2>
+
+			<iframe src="//www.youtube.com/embed/ORLaLwytAKg?showinfo=0&loop=1&playlist=ORLaLwytAKg" frameborder="0" allowfullscreen></iframe>
 			<p>締めつけることなく、首の付け根の太さを測ります。</p>
 
 			<input type="number" name="neck" ng-model="d.neck" placeholder="{{r.neck.min}}〜{{r.neck.max}}" min="{{r.neck.min}}" max="{{r.neck.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
@@ -72,6 +74,8 @@
 
 		<form name="DressLength" id="DressLength">
 			<h2>着丈<small>(4/10)</small></h2>
+
+			<iframe src="//www.youtube.com/embed/pMGb_r9Z2Xg?showinfo=0&loop=1&playlist=pMGb_r9Z2Xg" frameborder="0" allowfullscreen></iframe>
 			<p>首の付け根の骨からお尻と太ももの境目までをお計り下さい。</p>
 
 			<input type="number" name="dressLength" ng-model="d.dressLength" placeholder="{{r.dressLength.min}}〜{{r.dressLength.max}}" min="{{r.dressLength.min}}" max="{{r.dressLength.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
@@ -84,6 +88,8 @@
 
 		<form name="ShoulderWidth" id="ShoulderWidth">
 			<h2>肩幅<small>(5/10)</small></h2>
+
+			<iframe src="//www.youtube.com/embed/ty9QHpNiWs8?showinfo=0&loop=1&playlist=ty9QHpNiWs8" frameborder="0" allowfullscreen></iframe>
 			<p>腕と肩骨の付け根から首付け根を通り、反対の肩骨までお計り下さい。</p>
 
 			<input type="number" name="shoulderWidth" ng-model="d.shoulderWidth" placeholder="{{r.shoulderWidth.min}}〜{{r.shoulderWidth.max}}" min="{{r.shoulderWidth.min}}" max="{{r.shoulderWidth.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
@@ -96,6 +102,8 @@
 
 		<form name="SleeveLength" id="SleeveLength">
 			<h2>袖丈<small>(6/10)</small></h2>
+
+			<iframe src="//www.youtube.com/embed/rRkfmxliKnE?showinfo=0&loop=1&playlist=rRkfmxliKnE" frameborder="0" allowfullscreen></iframe>
 			<p>腕の肩骨のつけねから親指の付け根付近までをお計り下さい。</p>
 
 			<input type="number" name="sleeveLength" ng-model="d.sleeveLength" placeholder="{{r.sleeveLength.min}}〜{{r.sleeveLength.max}}" min="{{r.sleeveLength.min}}" max="{{r.sleeveLength.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
@@ -108,6 +116,8 @@
 
 		<form name="Chest" id="Chest">
 			<h2>胸囲<small>(7/10)</small></h2>
+
+			<iframe src="//www.youtube.com/embed/_vwfQnTVFKw?showinfo=0&loop=1&playlist=_vwfQnTVFKw" frameborder="0" allowfullscreen></iframe>
 			<p>胸を膨らませずに、脇の下を通して一直線にお測り下さい。</p>
 
 			<input type="number" name="chest" ng-model="d.chest" placeholder="{{r.chest.min}}〜{{r.chest.max}}" min="{{r.chest.min}}" max="{{r.chest.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
@@ -120,6 +130,8 @@
 
 		<form name="Waist" id="Waist">
 			<h2>ウエスト<small>(8/10)</small></h2>
+
+			<iframe src="//www.youtube.com/embed/8ZZiuv9Is1Y?showinfo=0&loop=1&playlist=8ZZiuv9Is1Y" frameborder="0" allowfullscreen></iframe>
 			<p>腹部をへこませることなく、胴回りを測ります。(大柄な方は座った姿勢も測って下さい)</p>
 
 			<input type="number" name="waist" ng-model="d.waist" placeholder="{{r.waist.min}}〜{{r.waist.max}}" min="{{r.waist.min}}" max="{{r.waist.min}}〜{{r.waist.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
@@ -132,6 +144,8 @@
 
 		<form name="Wrist" id="Wrist">
 			<h2>手首<small>(9/10)</small></h2>
+
+			<iframe src="//www.youtube.com/embed/nuCa5hteDbA?showinfo=0&loop=1&playlist=nuCa5hteDbA" frameborder="0" allowfullscreen></iframe>
 			<p>手首のくるぶしから一周お計り下さい。</p>
 
 			<input type="number" name="wrist" ng-model="d.wrist" placeholder="{{r.wrist.min}}〜{{r.wrist.max}}" min="{{r.wrist.min}}" max="{{r.wrist.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
@@ -144,6 +158,8 @@
 
 		<form name="UpperArm" id="UpperArm">
 			<h2>二の腕<small>(10/10)</small></h2>
+
+			<iframe src="//www.youtube.com/embed/lAM3_ztQVq4?showinfo=0&loop=1&playlist=lAM3_ztQVq4" frameborder="0" allowfullscreen></iframe>
 			<p>締め付けたり筋肉を膨らませることなく、腕を下ろした状態で脇の下の高さで腕をお測り下さい。</p>
 
 			<input type="number" name="upperArm" ng-model="d.upperArm" placeholder="{{r.upperArm.min}}〜{{r.upperArm.max}}" min="{{r.upperArm.min}}" max="{{r.upperArm.max}}" ng-required="true" ng-model-options="{debounce: 500}">cm<br>
