@@ -7,11 +7,13 @@ Zepto(function($){
 		}, 200);
 	});
 
+	var footer = $('footer');
+	var scrollHeight = $(document).height();
+	($(window).width() > 840) && ($(window).height() == scrollHeight) && footer.css({bottom: 0});
+
 	($(window).width() > 840) && $(window).on('scroll', function(){
-		var scrollHeight = $(document).height();
 		var scrollPosition = $(window).height() + $(window).scrollTop();
-		var footer = $('footer');
-		((scrollHeight - scrollPosition) / scrollHeight < .2) ? footer.css({bottom: 0}) : footer.css({bottom: '-200px'});
+		((scrollHeight - scrollPosition) / scrollHeight < .2) ? footer.css({bottom: 0}) && $('body > main').css({'margin-bottom': 170}) : footer.css({bottom: '-200px'});
 	});
 
 	$('#HeaderMenu').on('click', function(e){

@@ -134,7 +134,6 @@ footer nav a {
 		top: 3px
 	}
 
-	main, header + div { margin-bottom: 170px !important }
 }
 
 @media screen and (max-width: 840px) {

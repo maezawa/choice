@@ -1,5 +1,7 @@
 h2, h3 { text-align: center }
 
+h2 { border: none }
+
 input {
 	border: 1px solid #bbb;
 	border-radius: 4px;
@@ -16,6 +18,8 @@ iframe {
 	height: 246px;
 	width: 437px
 }
+
+main { width: 100% }
 
 label { display: inline-block }
 
@@ -263,7 +267,7 @@ label.embPos.on:before {
 }
 
 #ConfirmCtrl, #DetailMeasure, #SimpleMeasure { background: #fff; overflow-y: scroll }
-#ConfirmCtrl main { padding: 0 10px; width: 100% }
+#ConfirmCtrl main { background: transparent; padding: 0 10px; width: 100% }
 #DetailMeasure, #SimpleMeasure { padding: 10px 10px 0 }
 #DetailMeasure .btn.alone, #SimpleMeasure .btn.alone { width: 100% }
 #DetailMeasure .btn, #SimpleMeasure .btn { margin: 1.5em 5px; width: calc(50% - 15px) }
@@ -527,8 +531,7 @@ a.btn.general {
 .dFlex {
 	display: flex;
 	display: -webkit-flex;
-	display: -ms-flex;
-	display: -moz-flex;
+	display: -ms-flexbox;
 }
 
 .hAuto { height: auto !important }
@@ -581,7 +584,7 @@ a.btn.general {
 	}
 
 	#Navigation {
-		height: 100%;
+		height: 120%;
 		left: 520px;
 		min-height: 0;
 		overflow-y: scroll;
@@ -651,11 +654,11 @@ a.btn.general {
 
 	.desc .name { flex: initial }
 
-	.container {
+	body > main {
 		box-shadow: inset 0 0 16px 10px #efefef;
-		margin: 10px auto 0;
+		margin: 3.5em auto 0;
 		position: relative;
-		width: 1080px
+		max-width: 1080px
 	}
 
 	.content {

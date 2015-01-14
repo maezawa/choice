@@ -10,7 +10,9 @@
 <!--<link rel="stylesheet" href="/css/shirtDesign.css">-->
 <body ng-app="designApp" ng-controller="DisplayCtrl">
 
-<div class="container" style="background-image: url(/img/design/cloth_bg/x1/{{order.cloth || 1}}.jpg)">
+<?php include('../parts/header.htm'); ?>
+
+<main class="container" style="background-image: url(/img/design/cloth_bg/x1/{{order.cloth || 1}}.jpg)">
 	<section id="Display" ng-class="{blur: zoom}">
 		<div id="Canvas">
 			<img alt="sleeve_left" ng-src="/img/design/shirt/{{order.sleeve || 1}}/{{order.cloth || 1}}/x1/left_{{cam}}.png" ng-class="(cam != 3) ? 'z9' : 'z2'">
@@ -32,7 +34,7 @@
 	</section>
 
 	<section id="Navigation" ng-class="{blur: zoom}" ng-view></section>
-</div>
+</main>
 
 <div class="bgZoom" ng-if="zoom" ng-init="zoom=false"></div>
 <section id="Zoom" ng-if="zoom" ng-click="$parent.zoom = !$parent.zoom">
@@ -51,9 +53,13 @@
 
 <canvas width="180" height="180" id="UnitedCanvas"></canvas>
 
+<?php include('../parts/footer.htm'); ?>
+
 <script defer src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js"></script>
 <script defer src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular-route.min.js"></script>
 <script defer src="/js/ngStorage.min.js"></script>
 <script defer src="/js/app.js"></script>
 <script defer src="/js/ctrl.js"></script>
+<script defer src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.4/zepto.min.js"></script>
+<script defer src="/js/common.js"></script>
 </body>

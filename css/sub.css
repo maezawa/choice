@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+h2 + div dd { margin-left: 1em }
+h2 + div dt { font-weight: bold }
+
 #shipping {
 	border-collapse: separate;
 	border-spacing: 8px 0;
@@ -26,82 +29,11 @@
 	padding: .5em 1em
 }
 
-#title{
-	min-width: 320px;
-	max-width: 840px;
-	width: 80%;
-	margin: 0 auto;
-}
-
-.terms p{line-height: 2em;}
-
-.box{
-	min-width: 320px;
-	max-width: 840px;
-	width: 80%;
-	margin: 30px auto 0;
-	border-radius: 10px;
-	background-color: #FFF;
-	padding-bottom: 2em;
-}
-
-.terms .box h2{
-	font-size: 1.6rem;
-	line-height: 35px;
-	margin: 0 2em;
-	padding-top: 1em;
-}
-.terms .box ol li{
-	list-style-type: decimal;
-	margin: 0 2em 0 5em;
-}
-.terms .box ul li{
-	list-style-type: disc;
-	margin: 0 2em 0 5em;
-}
-.terms .box h3{
-	margin: .5em 2em 0 3em;
-	font-size: 1.2rem;
-}
-.terms .box p{
-	line-height: 1.5em;
-	margin: 0 2em 0 4em;
-}
-
-.close a{
-	display:block;
-	color: #fff;
-	width: 11em;
-	height: 3em;
-	font-weight: bold;
-	background: #d59828;
-	border: none;
-	margin: 30px auto 30px;
-	text-align: center;
-	line-height: 3em;
-}
-.flexbox{
-	display: -webkit-flexbox;
-	display: -moz-flexbox;
-	display: -ms-flexbox;
-	display: -o-flexbox;
-	display: flex;
-	margin: 0 auto;
-}
-
 #QA h2 + div {
 	display: flex;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	flex-flow: row wrap;
-}
-
-@media screen and (max-width: 840px) {
-
-	#QA h2 + div {
-		display: block;
-	}
-
 }
 
 #QA dt{
@@ -111,143 +43,26 @@
 	font-weight: bold;
 }
 
-#QA dd{
-	margin: 0
-}
+#QA dd{ margin: 0 }
 
-#img_card{
-	margin: 0 30px;
-	width: 85%;
-	max-width: 459px;
-}
-
-#convenience1{
-	margin-left: 30px;
-	width: 80%;
-	max-width: 398px;
-}
-
-#convenience2{
-	margin-left: 30px;
-	width: 50%;
-	max-width: 260px;
-}
-
-#img_payeasy{
-	margin-left: 30px;
-}
-
-
-.history .top{
-	background-color: #efefef;
-	position: relative;
-	top: -30px;
-}
-
-.history .topimage{
-	display: block;
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-}
-
-.history .textimage{
-	display: block;
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.law .box{
-	min-width: 320px;
-	max-width: 840px;
-	width: 80%;
-	margin: 30px auto 0;
+#Law dl {
+	background: #fff;
 	border-radius: 10px;
-	background-color: #FFF;
-	padding-bottom: 2em;
+	margin: 0 0 2em;
+	padding: 1em;
 }
 
-.law .box dt{
-	font-size: 1.6rem;
-	line-height: 35px;
-	margin: 0 2em;
-	padding-top: 1em;
-}
-
-.law .box dd{
+#Law dt {
 	font-size: 1.4rem;
-	line-height: 1.5em;
-	margin: 0 2em 0 4em;
+	font-weight: bold
 }
 
-.law ul{padding-left: 2em;}
-.law li{list-style-type: disc;}
+#Law dd { margin: 0 0 1em 1em }
 
-.sub{
-	min-width: 320px;
-	max-width: 840px;
-	width: 80%;
-	margin: 30px auto 0;
-}
+@media screen and (max-width: 840px) {
 
-.return p{
-	line-height: 1.7em;
-	padding: 0 2em;
-}
-.return .box-gray{
-	max-width: 42em;
-	margin-top: 15px;
-}
-.return .box-gray h3{
-	color: #fff;
-	background-color: gray;
-	text-align: center;
-	line-height: 2em;
-	font-size: 1.4rem;
-}
-.return .box-gray ol{
-	padding: 1em 4em;
-	border-style: solid;
-	border-width: 1px;
-	border-color: gray;
-	background-color: #fff;
-}
-.return .box-gray li{
-	list-style-type: decimal;
-	padding: 3px 0;
-}
+	#QA h2 + div {
+		display: block;
+	}
 
-.return h2{
-	line-height: 30px;
-	color: #03364b;
-	border-bottom-color: #a5a5a5;
-	border-bottom-style: solid;
-	border-width: 1px;
-	padding: 20px 1em 0;
 }
-
-.return .box dl{
-	padding: 0 1em 0 3em;
-	font-size: 1.4rem;
-}
-.return .box dt{font-size: 1.4rem;}
-.return .box dd{
-	font-size: 1.4rem;
-	padding: 0 1em 0 2em;
-	line-height: 1.7em;
-}
-.return em{
-	font-size: 1.4rem;
-	padding: 10px 1em 0 2em;
-}
-.return .box h2 small{
-	color: #03364b;
-	font-size: 1.2rem;
-}
-
-#other_ul{padding: 1em 2em 1em 5em;}
-#other_ul li{padding: 3px 0}
